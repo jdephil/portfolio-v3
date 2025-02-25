@@ -1,70 +1,43 @@
 "use client"
 import Header from "./components/Header"
 import Experience from "./components/Experience"
-import { useRef } from "react"
-import { Canvas, useFrame, useLoader } from "@react-three/fiber"
-import { OrbitControls, useGLTF } from "@react-three/drei"
-// import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader"
-import { Mesh } from "three"
+import Planet from "./components/Planet"
+import Planet2 from "./components/Planet2"
+import Planet3 from "./components/Planet3"
+import Planet4 from "./components/Planet4"
+import Planet5 from "./components/Planet5"
 export default function Home() {
-  function MeshComponent(props: any) {
-    const fileUrl = "/mars_gltf/scene.gltf"
-    const { scene } = useGLTF(fileUrl)
-    const meshRef = useRef<Mesh>(null) // Create a reference to the mesh
-
-    // Rotate the model on every frame
-    useFrame(() => {
-      if (meshRef.current) {
-        meshRef.current.rotation.y += 0.01 // Adjust speed as needed
-      }
-    })
-    return <primitive object={scene} ref={meshRef} {...props} />
-  }
   return (
     <div>
-      <Header />
-      <Experience
-        imgSource="/projectBasta.png"
-        description="Basta is bridging the employment gap and building careers for first generation students through award winning technology and robust employer partnerships."
-        stack="React, Django, GraphQL, PostgreSQL, Heroku, MongoDB, Airtable, GSheets"
-        link="https://seekr.projectbasta.com/log-in"
-      />
-      <Canvas camera={{ position: [0, 0, 5] }}>
-        <ambientLight />
-        <OrbitControls />
-
-        <MeshComponent scale={0.02} />
-      </Canvas>
-      <Experience
-        imgSource="/data4Living.png"
-        description="Data4Living simplifies your document management and helps prepare your
-          documents to complete significant life events."
-        stack="Vue, Django, PostgreSQL, Heroku, Stripe"
-        link="https://app.data4living.com/login"
-      />
-      <Experience
-        imgSource="/squirrel.png"
-        description="Squirrel Financial Literacy Programme is a web-based application that can be accessed via desktop, tablet or smartphone. It is designed to give 7-18 year olds the opportunity to experience a wide range of real world financial management activities. Students learn to manage bank accounts, earn income, pay bills, and unlock rewards."
-        stack="React, Django, GraphQL, PostgreSQL, Heroku"
-        link="https://app.squirreledu.co/log-in"
-      />
-      <Experience
-        imgSource="/lexx.png"
-        description="Connecting life-long learners to the knowledge they seek using the power of AI. Lexx creates a personalized curriculum and learning map, which the user can explore at their own pace. Unlock new learning nodes as you complete knowledge checks."
-        stack="React, Django, OpenAI, PostgreSQL, Heroku"
-      />
-      <Experience
-        imgSource="/wedding.png"
-        description="Wedding website fully designed and created by me."
-        stack="React, GSAP"
-        link="https://wedding.jenniferdephillips.com"
-      />
-      <Experience
-        imgSource="/frogStory.png"
-        description="A choose-your-own-adventure game about a lonely, little frog (and the first app I ever built)."
-        stack="Javascript, CSS, HTML"
-        link="https://jdephil.github.io/Frog-Story/"
-      />
+      <Planet src="/mars_gltf/scene.gltf" scale={0.02} />
+      <div className="grid grid-template-rows-2 grid-template-columns-4">
+        <div className="row-start-1 col-start-1">
+          <Planet src="/purple_planet/scene.gltf" scale={2} />
+        </div>
+      </div>
+      <div className="grid grid-cols-4 grid-rows-2 gap-4">
+        <div>
+          {" "}
+          <Planet2 src="/purple_planet/scene.gltf" scale={2} />
+        </div>
+        <div className="col-start-1 row-start-2">
+          {" "}
+          <Planet src="/kepler-452b/scene.gltf" scale={0.02} />
+        </div>
+        <div className="col-span-2 row-span-2 col-start-2 row-start-1">
+          {" "}
+          <Planet3 src="/the_star_sun/scene.gltf" scale={0.02} />
+        </div>
+        <div className="col-start-4 row-start-1">
+          {" "}
+          <Planet4 src="/green_planet/scene.gltf" scale={0.02} />
+        </div>
+        <div className="col-start-4 row-start-2">
+          {" "}
+          <Planet4 src="/ringed_gas_giant/scene.gltf" scale={1} />
+        </div>
+      </div>
+      <Planet2 src="/odious/scene.gltf" scale={1} />
     </div>
   )
 }
