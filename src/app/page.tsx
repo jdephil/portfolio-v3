@@ -1,101 +1,70 @@
-import Image from "next/image";
-
+"use client"
+import Header from "./components/Header"
+import Experience from "./components/Experience"
+import { useRef } from "react"
+import { Canvas, useFrame, useLoader } from "@react-three/fiber"
+import { OrbitControls, useGLTF } from "@react-three/drei"
+// import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader"
+import { Mesh } from "three"
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+  function MeshComponent(props: any) {
+    const fileUrl = "/mars_gltf/scene.gltf"
+    const { scene } = useGLTF(fileUrl)
+    const meshRef = useRef<Mesh>(null) // Create a reference to the mesh
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+    // Rotate the model on every frame
+    useFrame(() => {
+      if (meshRef.current) {
+        meshRef.current.rotation.y += 0.01 // Adjust speed as needed
+      }
+    })
+    return <primitive object={scene} ref={meshRef} {...props} />
+  }
+  return (
+    <div>
+      <Header />
+      <Experience
+        imgSource="/projectBasta.png"
+        description="Basta is bridging the employment gap and building careers for first generation students through award winning technology and robust employer partnerships."
+        stack="React, Django, GraphQL, PostgreSQL, Heroku, MongoDB, Airtable, GSheets"
+        link="https://seekr.projectbasta.com/log-in"
+      />
+      <Canvas camera={{ position: [0, 0, 5] }}>
+        <ambientLight />
+        <OrbitControls />
+
+        <MeshComponent scale={0.02} />
+      </Canvas>
+      <Experience
+        imgSource="/data4Living.png"
+        description="Data4Living simplifies your document management and helps prepare your
+          documents to complete significant life events."
+        stack="Vue, Django, PostgreSQL, Heroku, Stripe"
+        link="https://app.data4living.com/login"
+      />
+      <Experience
+        imgSource="/squirrel.png"
+        description="Squirrel Financial Literacy Programme is a web-based application that can be accessed via desktop, tablet or smartphone. It is designed to give 7-18 year olds the opportunity to experience a wide range of real world financial management activities. Students learn to manage bank accounts, earn income, pay bills, and unlock rewards."
+        stack="React, Django, GraphQL, PostgreSQL, Heroku"
+        link="https://app.squirreledu.co/log-in"
+      />
+      <Experience
+        imgSource="/lexx.png"
+        description="Connecting life-long learners to the knowledge they seek using the power of AI. Lexx creates a personalized curriculum and learning map, which the user can explore at their own pace. Unlock new learning nodes as you complete knowledge checks."
+        stack="React, Django, OpenAI, PostgreSQL, Heroku"
+      />
+      <Experience
+        imgSource="/wedding.png"
+        description="Wedding website fully designed and created by me."
+        stack="React, GSAP"
+        link="https://wedding.jenniferdephillips.com"
+      />
+      <Experience
+        imgSource="/frogStory.png"
+        description="A choose-your-own-adventure game about a lonely, little frog (and the first app I ever built)."
+        stack="Javascript, CSS, HTML"
+        link="https://jdephil.github.io/Frog-Story/"
+      />
     </div>
-  );
+  )
 }

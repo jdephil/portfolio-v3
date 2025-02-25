@@ -1,0 +1,11 @@
+Model Information:
+* title:	Odious
+* source:	https://sketchfab.com/3d-models/odious-d2580bf2f3a3406a8e7567214c9a0725
+* author:	IgorLugosi (https://sketchfab.com/igorlugosi)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Odious" (https://sketchfab.com/3d-models/odious-d2580bf2f3a3406a8e7567214c9a0725) by IgorLugosi (https://sketchfab.com/igorlugosi) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
