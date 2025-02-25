@@ -6,7 +6,6 @@ import { Mesh } from "three"
 
 export default function Planet4({ src, scale }: any) {
   function MeshComponent(props: any) {
-    const fileUrl = src.toString()
     const { scene } = useGLTF(src)
     const meshRef = useRef<Mesh>(null) // Create a reference to the mesh
 
@@ -19,10 +18,14 @@ export default function Planet4({ src, scale }: any) {
     return <primitive object={scene} ref={meshRef} scale={scale} {...props} />
   }
   return (
-    <Canvas camera={{ position: [0, 0, 5] }}>
-      <ambientLight />
-      <OrbitControls />
-      <MeshComponent />
-    </Canvas>
+    <div className="flex flex-col justify-center items-center">
+      <Canvas camera={{ position: [0, 0, 5] }}>
+        <ambientLight />
+        <MeshComponent />
+      </Canvas>
+      <div className="flex flex-col items-end">
+        <p className="">Wedding Website</p>
+      </div>
+    </div>
   )
 }

@@ -9,7 +9,7 @@ import Planet5 from "./components/Planet5"
 export default function Home() {
   return (
     <div>
-      <Planet src="/mars_gltf/scene.gltf" scale={0.02} />
+      <Planet title="Data4Living" src="/mars_gltf/scene.gltf" scale={0.05} />
       <div className="grid grid-template-rows-2 grid-template-columns-4">
         <div className="row-start-1 col-start-1">
           <Planet src="/purple_planet/scene.gltf" scale={2} />
@@ -18,26 +18,35 @@ export default function Home() {
       <div className="grid grid-cols-4 grid-rows-2 gap-4">
         <div>
           {" "}
-          <Planet2 src="/purple_planet/scene.gltf" scale={2} />
+          <Planet2
+            src="/purple_planet/scene.gltf"
+            title="Project Basta"
+            scale={2.5}
+          />
         </div>
         <div className="col-start-1 row-start-2">
           {" "}
-          <Planet src="/kepler-452b/scene.gltf" scale={0.02} />
+          <Planet4 src="/ringed_gas_giant/scene.gltf" scale={0.5} />{" "}
         </div>
         <div className="col-span-2 row-span-2 col-start-2 row-start-1">
-          {" "}
-          <Planet3 src="/the_star_sun/scene.gltf" scale={0.02} />
+          <Planet3 src="/the_star_sun/scene.gltf" scale={0.1} />
         </div>
         <div className="col-start-4 row-start-1">
           {" "}
-          <Planet4 src="/green_planet/scene.gltf" scale={0.02} />
+          <Planet5 src="/odious/scene.gltf" scale={0.8} />
         </div>
-        <div className="col-start-4 row-start-2">
-          {" "}
-          <Planet4 src="/ringed_gas_giant/scene.gltf" scale={1} />
+        <div
+          onClick={() => console.log("click")}
+          className="col-start-4 row-start-2"
+        >
+          <Planet title="Lexx" src="/kepler-452b/scene.gltf" scale={0.02} />
         </div>
       </div>
-      <Planet2 src="/odious/scene.gltf" scale={1} />
+      <Planet2
+        src="/green_planet/scene.gltf"
+        title="Frog Story"
+        scale={0.015}
+      />
     </div>
   )
 }
