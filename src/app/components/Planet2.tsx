@@ -18,7 +18,7 @@ export default function Planet2({ src, scale, title }: any) {
     return <primitive object={scene} ref={meshRef} scale={scale} {...props} />
   }
   return (
-    <div className="flex flex-col justify-center items-center">
+    <div className="w-42 m-auto">
       <Canvas camera={{ position: [0, 0, 5] }}>
         <ambientLight />
         <MeshComponent />

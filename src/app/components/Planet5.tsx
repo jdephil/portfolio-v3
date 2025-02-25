@@ -26,7 +26,7 @@ export default function Planet5({ src, scale }: any) {
     )
   }
   return (
-    <div className="flex flex-col justify-center items-center">
+    <div className="w-42 m-auto mr-5">
       <Canvas camera={{ position: [0, 0, 5] }}>
         <ambientLight />
         <MeshComponent />

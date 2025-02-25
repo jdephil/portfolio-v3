@@ -18,13 +18,12 @@ export default function Planet({ src, scale, title }: any) {
     return <primitive object={scene} ref={meshRef} scale={scale} {...props} />
   }
   return (
-    <div className="flex flex-col justify-end items-center">
+    <div className="w-36 m-auto">
       <Canvas camera={{ position: [0, 0, 5] }}>
         <ambientLight />
-        <OrbitControls />
         <MeshComponent />
       </Canvas>
-      <div className="flex flex-col items-end">
+      <div className="text-right">
         <p className="">{title}</p>
       </div>
     </div>

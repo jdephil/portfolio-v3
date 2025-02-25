@@ -10,12 +10,8 @@ export default function Home() {
   return (
     <div>
       <Planet title="Data4Living" src="/mars_gltf/scene.gltf" scale={0.05} />
-      <div className="grid grid-template-rows-2 grid-template-columns-4">
-        <div className="row-start-1 col-start-1">
-          <Planet src="/purple_planet/scene.gltf" scale={2} />
-        </div>
-      </div>
-      <div className="grid grid-cols-4 grid-rows-2 gap-4">
+
+      <div className="grid grid-cols-4 grid-rows-2 gap-4 mt-10">
         <div>
           {" "}
           <Planet2
@@ -29,7 +25,7 @@ export default function Home() {
           <Planet4 src="/ringed_gas_giant/scene.gltf" scale={0.5} />{" "}
         </div>
         <div className="col-span-2 row-span-2 col-start-2 row-start-1">
-          <Planet3 src="/the_star_sun/scene.gltf" scale={0.1} />
+          <Planet3 src="/the_star_sun/scene.gltf" scale={0.13} />
         </div>
         <div className="col-start-4 row-start-1">
           {" "}

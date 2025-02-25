@@ -18,12 +18,12 @@ export default function Planet3({ src, scale }: any) {
     return <primitive object={scene} ref={meshRef} scale={scale} {...props} />
   }
   return (
-    <div className="flex flex-col justify-center items-center">
+    <div className="flex flex-col justify-between items-center">
       <div className="flex flex-col items-end">
         <p className="">Jennifer De Phillips</p>
         <p>Full Stack Software Engineer</p>
       </div>
-      <Canvas camera={{ position: [0, 0, 5] }}>
+      <Canvas className="!h-[200px]" camera={{ position: [0, 0, 5] }}>
         <ambientLight />
         <OrbitControls />
         <MeshComponent />
