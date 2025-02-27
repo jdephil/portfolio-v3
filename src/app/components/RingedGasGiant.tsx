@@ -4,7 +4,7 @@ import { OrbitControls, useGLTF } from "@react-three/drei"
 // import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader"
 import { Mesh } from "three"
 
-export default function Planet5({ src, scale }: any) {
+export default function RingedGasGiant({ src, scale }: any) {
   function MeshComponent(props: any) {
     const { scene } = useGLTF(src)
     const meshRef = useRef<Mesh>(null) // Create a reference to the mesh
@@ -15,24 +15,18 @@ export default function Planet5({ src, scale }: any) {
         meshRef.current.rotation.y += 0.01 // Adjust speed as needed
       }
     })
-    return (
-      <primitive
-        rotation={[Math.PI / 110, 0, 0]}
-        object={scene}
-        ref={meshRef}
-        scale={scale}
-        {...props}
-      />
-    )
+    return <primitive object={scene} ref={meshRef} scale={scale} {...props} />
   }
   return (
-    <div className="w-42 m-auto mr-5">
+    <div className="w-full min-h-56 m-auto pr-24">
       <Canvas camera={{ position: [0, 0, 5] }}>
         <ambientLight />
+        <directionalLight intensity={5} position={[1, 0.5, 0]} />
+
         <MeshComponent />
       </Canvas>
-      <div className="flex flex-col items-end">
-        <p className="">Squirrel</p>
+      <div className="flex flex-col items-center ml-20">
+        <p className="">Wedding Website</p>
       </div>
     </div>
   )

@@ -4,7 +4,7 @@ import { OrbitControls, useGLTF } from "@react-three/drei"
 // import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader"
 import { Mesh } from "three"
 
-export default function Planet2({ src, scale, title }: any) {
+export default function Mars({ src, scale, title, lightPosition }: any) {
   function MeshComponent(props: any) {
     const { scene } = useGLTF(src)
     const meshRef = useRef<Mesh>(null) // Create a reference to the mesh
@@ -12,18 +12,19 @@ export default function Planet2({ src, scale, title }: any) {
     // Rotate the model on every frame
     useFrame(() => {
       if (meshRef.current) {
-        meshRef.current.rotation.y += 0.0005 // Adjust speed as needed
+        meshRef.current.rotation.y += 0.005 // Adjust speed as needed
       }
     })
     return <primitive object={scene} ref={meshRef} scale={scale} {...props} />
   }
   return (
-    <div className="w-42 m-auto">
+    <div className="w-36 m-auto">
       <Canvas camera={{ position: [0, 0, 5] }}>
+        <directionalLight intensity={5} position={lightPosition} />
         <ambientLight />
         <MeshComponent />
       </Canvas>
-      <div className="flex flex-col items-end">
+      <div className="text-right">
         <p className="">{title}</p>
       </div>
     </div>

@@ -1,48 +1,65 @@
 "use client"
-import Header from "./components/Header"
-import Experience from "./components/Experience"
-import Planet from "./components/Planet"
-import Planet2 from "./components/Planet2"
-import Planet3 from "./components/Planet3"
-import Planet4 from "./components/Planet4"
-import Planet5 from "./components/Planet5"
+
+import Kepler from "./components/Kepler"
+import PurplePlanet from "./components/PurplePlanet"
+import Sun from "./components/Sun"
+import RingedGasGiant from "./components/RingedGasGiant"
+import Odious from "./components/Odious"
+import GreenPlanet from "./components/GreenPlanet"
+import Mars from "./components/Mars"
 export default function Home() {
   return (
     <div>
-      <Planet title="Data4Living" src="/mars_gltf/scene.gltf" scale={0.05} />
-
-      <div className="grid grid-cols-4 grid-rows-2 gap-4 mt-10">
-        <div>
+      <div className="grid grid-cols-4 grid-rows-4">
+        <div className="row-start-2  col-start-1 col-span-2">
           {" "}
-          <Planet2
+          <PurplePlanet
             src="/purple_planet/scene.gltf"
             title="Project Basta"
             scale={2.5}
+            lightPosition={[1, -0.5, 0]}
           />
         </div>
-        <div className="col-start-1 row-start-2">
+        <div className="col-start-1 col-span-2 row-start-3">
           {" "}
-          <Planet4 src="/ringed_gas_giant/scene.gltf" scale={0.5} />{" "}
+          <RingedGasGiant src="/ringed_gas_giant/scene.gltf" scale={0.4} />{" "}
         </div>
-        <div className="col-span-2 row-span-2 col-start-2 row-start-1">
-          <Planet3 src="/the_star_sun/scene.gltf" scale={0.13} />
+        <div className="col-span-2 row-span-2 col-start-2 row-start-2 flex items-center justify-center">
+          <Sun src="/the_star_sun/scene.gltf" scale={0.13} />
         </div>
-        <div className="col-start-4 row-start-1">
+        <div className="col-start-3 row-start-2 col-span-2 ">
           {" "}
-          <Planet5 src="/odious/scene.gltf" scale={0.8} />
+          <Odious src="/odious/scene.gltf" scale={0.8} />
         </div>
         <div
           onClick={() => console.log("click")}
-          className="col-start-4 row-start-2"
+          className="col-start-3 col-span-2 row-start-3"
         >
-          <Planet title="Lexx" src="/kepler-452b/scene.gltf" scale={0.02} />
+          <Kepler
+            title="Lexx"
+            src="/kepler-452b/scene.gltf"
+            scale={0.02}
+            lightPosition={[-1, 0.5, 0]}
+          />
+        </div>
+        <div className="col-span-2 col-start-2 row-start-1 ">
+          {" "}
+          <Mars
+            title="Data4Living"
+            src="/mars_gltf/scene.gltf"
+            scale={0.05}
+            lightPosition={[0, -1, 0]}
+          />
+        </div>
+        <div className="col-span-2 col-start-2 row-start-4">
+          <GreenPlanet
+            src="/green_planet/scene.gltf"
+            title="Frog Story"
+            scale={0.015}
+            lightPosition={[0, 1, 0]}
+          />
         </div>
       </div>
-      <Planet2
-        src="/green_planet/scene.gltf"
-        title="Frog Story"
-        scale={0.015}
-      />
     </div>
   )
 }

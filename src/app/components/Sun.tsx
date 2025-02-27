@@ -4,7 +4,7 @@ import { OrbitControls, useGLTF } from "@react-three/drei"
 // import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader"
 import { Mesh } from "three"
 
-export default function Planet3({ src, scale }: any) {
+export default function Sun({ src, scale }: any) {
   function MeshComponent(props: any) {
     const { scene } = useGLTF(src)
     const meshRef = useRef<Mesh>(null) // Create a reference to the mesh
@@ -24,7 +24,6 @@ export default function Planet3({ src, scale }: any) {
         <p>Full Stack Software Engineer</p>
       </div>
       <Canvas className="!h-[200px]" camera={{ position: [0, 0, 5] }}>
-        <ambientLight />
         <OrbitControls />
         <MeshComponent />
       </Canvas>
