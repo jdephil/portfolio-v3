@@ -11,6 +11,7 @@ export default function PurplePlanetPage() {
           lightPosition={[1, -0.5, 0]}
           directionalIntensity={5}
           ambientIntensity={0}
+          rotateSpeed={0.001}
         />
       </div>
       <div className="w-[500px] self-center ">

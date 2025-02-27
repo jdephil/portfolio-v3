@@ -12,6 +12,7 @@ export default function Wedding() {
           src="/kepler-452b/scene.gltf"
           scale={0.028}
           lightPosition={[-1, 0.5, 0]}
+          rotateSpeed={0.001}
         />
       </div>
       <div className="w-[500px] self-center ">

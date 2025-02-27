@@ -12,6 +12,7 @@ export default function Data4Living() {
           lightPosition={[0, -1, 0]}
           directionalIntensity={3}
           ambientIntensity={0.6}
+          rotateSpeed={0.001}
         />
       </div>
       <div className="w-[500px] self-center ">

@@ -12,6 +12,7 @@ export default function Squirrel() {
           lightPosition={[-1, -0.5, 0]}
           directionalIntensity={3}
           ambientIntensity={0.8}
+          rotateSpeed={0.01}
         />
       </div>
       <div className="w-[500px] self-center ">

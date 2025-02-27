@@ -9,6 +9,7 @@ export default function ExperiencePlanet({
   src,
   directionalIntensity,
   ambientIntensity,
+  rotateSpeed,
 }: any) {
   function MeshComponent(props: any) {
     const { scene } = useGLTF(src)
@@ -17,7 +18,7 @@ export default function ExperiencePlanet({
     // Rotate the model on every frame
     useFrame(() => {
       if (meshRef.current) {
-        meshRef.current.rotation.y += 0.0005 // Adjust speed as needed
+        meshRef.current.rotation.y += rotateSpeed // Adjust speed as needed
       }
     })
     return <primitive object={scene} ref={meshRef} scale={scale} {...props} />

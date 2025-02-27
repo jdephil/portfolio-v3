@@ -12,6 +12,7 @@ export default function Lexx() {
           lightPosition={[1, 0.5, 0]}
           directionalIntensity={5}
           ambientIntensity={1}
+          rotateSpeed={0.01}
         />
       </div>
       <div className="w-[500px] self-center ">

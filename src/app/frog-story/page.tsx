@@ -2,7 +2,7 @@
 import ExperiencePlanet from "../components/ExperiencePlanet"
 import Experience from "../components/Experience"
 
-export default function Wedding() {
+export default function FrogStory() {
   return (
     <div className="flex justify-around items-end h-svh">
       <div className="h-[500px] w-[500px] ">
@@ -12,6 +12,7 @@ export default function Wedding() {
           src="/green_planet/scene.gltf"
           scale={0.015}
           lightPosition={[0, 1, 0]}
+          rotateSpeed={0.001}
         />
       </div>
       <div className="w-[500px] self-center ">
