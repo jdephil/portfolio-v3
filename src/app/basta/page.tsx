@@ -5,7 +5,13 @@ export default function PurplePlanetPage() {
   return (
     <div className="flex justify-around items-end h-svh">
       <div className="h-[600px] w-[600px] ">
-        <ExperiencePlanet scale={2.8} lightPosition={[1, 0.5, 0]} />
+        <ExperiencePlanet
+          src="/purple_planet/scene.gltf"
+          scale={2.8}
+          lightPosition={[1, 0.5, 0]}
+          directionalIntensity={5}
+          ambientIntensity={0}
+        />
       </div>
       <div className="w-[500px] self-center ">
         <Experience

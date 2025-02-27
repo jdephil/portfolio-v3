@@ -1,7 +1,6 @@
 import { useRef } from "react"
-import { Canvas, useFrame, useLoader } from "@react-three/fiber"
-import { OrbitControls, useGLTF } from "@react-three/drei"
-// import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader"
+import { Canvas, useFrame } from "@react-three/fiber"
+import { useGLTF } from "@react-three/drei"
 import { Mesh } from "three"
 
 export default function RingedGasGiant({ src, scale }: any) {
@@ -26,7 +25,7 @@ export default function RingedGasGiant({ src, scale }: any) {
         <MeshComponent />
       </Canvas>
       <div className="flex flex-col items-center ml-20">
-        <p className="">Wedding Website</p>
+        <p className="">Lexx</p>
       </div>
     </div>
   )

@@ -1,7 +1,6 @@
 import { useRef } from "react"
-import { Canvas, useFrame, useLoader } from "@react-three/fiber"
-import { OrbitControls, useGLTF } from "@react-three/drei"
-// import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader"
+import { Canvas, useFrame } from "@react-three/fiber"
+import { useGLTF } from "@react-three/drei"
 import { Mesh } from "three"
 
 export default function PurplePlanet({ scale, title, lightPosition }: any) {
@@ -12,7 +11,7 @@ export default function PurplePlanet({ scale, title, lightPosition }: any) {
     // Rotate the model on every frame
     useFrame(() => {
       if (meshRef.current) {
-        meshRef.current.rotation.y += 0.0005 // Adjust speed as needed
+        meshRef.current.rotation.y += 0.02 // Adjust speed as needed
       }
     })
     return <primitive object={scene} ref={meshRef} scale={scale} {...props} />

@@ -19,9 +19,18 @@ export default function Experience(props: {
         <p>{props.description}</p>
         <p className="my-5">Stack: {props.stack}</p>
       </div>
-      <a target="_blank" rel="noreferrer" href={props.link}>
-        Go to Site
-      </a>
+      {props.link && props.link.length ? (
+        <a
+          className="bg-white text-black px-4 py-1 rounded-md"
+          target="_blank"
+          rel="noreferrer"
+          href={props.link}
+        >
+          Visit site
+        </a>
+      ) : (
+        <></>
+      )}
     </div>
   )
 }

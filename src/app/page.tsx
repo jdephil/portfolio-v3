@@ -42,7 +42,7 @@ export default function Home() {
           className="col-start-3 col-span-2 row-start-3"
         >
           <Kepler
-            title="Lexx"
+            title="Wedding"
             src="/kepler-452b/scene.gltf"
             scale={0.02}
             lightPosition={[-1, 0.5, 0]}

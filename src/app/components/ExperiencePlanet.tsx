@@ -3,9 +3,15 @@ import { Canvas, useFrame } from "@react-three/fiber"
 import { OrbitControls, useGLTF } from "@react-three/drei"
 import { Mesh } from "three"
 
-export default function ExperiencePlanet({ scale, lightPosition }: any) {
+export default function ExperiencePlanet({
+  scale,
+  lightPosition,
+  src,
+  directionalIntensity,
+  ambientIntensity,
+}: any) {
   function MeshComponent(props: any) {
-    const { scene } = useGLTF("/purple_planet/scene.gltf")
+    const { scene } = useGLTF(src)
     const meshRef = useRef<Mesh>(null) // Create a reference to the mesh
 
     // Rotate the model on every frame
@@ -19,8 +25,11 @@ export default function ExperiencePlanet({ scale, lightPosition }: any) {
   return (
     <div className=" h-full w-full">
       <Canvas camera={{ position: [0, 0, 5] }}>
-        <directionalLight intensity={5} position={lightPosition} />
-        <ambientLight intensity={0.3} />
+        <directionalLight
+          intensity={directionalIntensity}
+          position={lightPosition}
+        />
+        <ambientLight intensity={ambientIntensity} />
         <OrbitControls />
         <MeshComponent />
       </Canvas>
