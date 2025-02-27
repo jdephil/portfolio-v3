@@ -34,3 +34,11 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+Planet Model Credit:
+https://sketchfab.com/3d-models/kepler-452b-816d14fb09974160aed7cb264bd770bc
+https://sketchfab.com/3d-models/ringed-gas-giant-planet-b4e21775e84e4cf3890f7796cfab1aca
+https://sketchfab.com/3d-models/green-planet-965dcf47e69e4c139741598162b147cf
+https://sketchfab.com/3d-models/odious-d2580bf2f3a3406a8e7567214c9a0725
+https://sketchfab.com/3d-models/the-star-sun-519dddb6998545e2bf84225394dc71fe
+https://sketchfab.com/3d-models/purple-planet-264eb22207184fc99a5e3b1279a763b8
