@@ -7,14 +7,20 @@ import RingedGasGiant from "./components/RingedGasGiant"
 import Odious from "./components/Odious"
 import GreenPlanet from "./components/GreenPlanet"
 import Mars from "./components/Mars"
+
+import { useRouter } from "next/navigation"
+
 export default function Home() {
+  const router = useRouter()
   return (
     <div>
       <div className="grid grid-cols-4 grid-rows-4">
-        <div className="row-start-2  col-start-1 col-span-2">
+        <div
+          onClick={() => router.push("/purplePlanetPage")}
+          className="row-start-2  col-start-1 col-span-2 hover:cursor-pointer"
+        >
           {" "}
           <PurplePlanet
-            src="/purple_planet/scene.gltf"
             title="Project Basta"
             scale={2.5}
             lightPosition={[1, -0.5, 0]}

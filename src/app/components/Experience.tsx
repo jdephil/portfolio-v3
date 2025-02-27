@@ -6,8 +6,8 @@ export default function Experience(props: {
   link?: string
 }) {
   return (
-    <div className="flex items-center justify-center">
-      <div>
+    <div className="flex-col items-center justify-center">
+      <div className="mb-20">
         <Image
           src={props.imgSource}
           alt="data4Living"
@@ -17,9 +17,11 @@ export default function Experience(props: {
       </div>
       <div>
         <p>{props.description}</p>
-        <p>Stack: {props.stack}</p>
+        <p className="my-5">Stack: {props.stack}</p>
       </div>
-      <a href={props.link}>Site</a>
+      <a target="_blank" rel="noreferrer" href={props.link}>
+        Go to Site
+      </a>
     </div>
   )
 }

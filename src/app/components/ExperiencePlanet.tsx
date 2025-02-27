@@ -1,10 +1,9 @@
 import { useRef } from "react"
-import { Canvas, useFrame, useLoader } from "@react-three/fiber"
+import { Canvas, useFrame } from "@react-three/fiber"
 import { OrbitControls, useGLTF } from "@react-three/drei"
-// import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader"
 import { Mesh } from "three"
 
-export default function PurplePlanet({ scale, title, lightPosition }: any) {
+export default function ExperiencePlanet({ scale, lightPosition }: any) {
   function MeshComponent(props: any) {
     const { scene } = useGLTF("/purple_planet/scene.gltf")
     const meshRef = useRef<Mesh>(null) // Create a reference to the mesh
@@ -18,15 +17,13 @@ export default function PurplePlanet({ scale, title, lightPosition }: any) {
     return <primitive object={scene} ref={meshRef} scale={scale} {...props} />
   }
   return (
-    <div className="m-auto pr-28">
+    <div className=" h-full w-full">
       <Canvas camera={{ position: [0, 0, 5] }}>
         <directionalLight intensity={5} position={lightPosition} />
         <ambientLight intensity={0.3} />
+        <OrbitControls />
         <MeshComponent />
       </Canvas>
-      <div className="flex flex-col items-center ml-10">
-        <p className="">{title}</p>
-      </div>
     </div>
   )
 }
