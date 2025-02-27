@@ -16,8 +16,8 @@ export default function Home() {
     <div>
       <div className="grid grid-cols-4 grid-rows-4">
         <div
-          onClick={() => router.push("/purplePlanetPage")}
-          className="row-start-2  col-start-1 col-span-2 hover:cursor-pointer"
+          onClick={() => router.push("/basta")}
+          className="row-start-2  col-start-1 col-span-2 "
         >
           {" "}
           <PurplePlanet
@@ -26,19 +26,25 @@ export default function Home() {
             lightPosition={[1, -0.5, 0]}
           />
         </div>
-        <div className="col-start-1 col-span-2 row-start-3">
+        <div
+          onClick={() => router.push("/lexx")}
+          className="col-start-1 col-span-2 row-start-3 "
+        >
           {" "}
           <RingedGasGiant src="/ringed_gas_giant/scene.gltf" scale={0.4} />{" "}
         </div>
-        <div className="col-span-2 row-span-2 col-start-2 row-start-2 flex items-center justify-center">
+        <div className="col-span-2 row-span-2 col-start-2 row-start-2 flex items-center justify-center ">
           <Sun src="/the_star_sun/scene.gltf" scale={0.13} />
         </div>
-        <div className="col-start-3 row-start-2 col-span-2 ">
+        <div
+          onClick={() => router.push("/squirrel")}
+          className="col-start-3 row-start-2 col-span-2"
+        >
           {" "}
           <Odious src="/odious/scene.gltf" scale={0.8} />
         </div>
         <div
-          onClick={() => console.log("click")}
+          onClick={() => router.push("/wedding")}
           className="col-start-3 col-span-2 row-start-3"
         >
           <Kepler
@@ -48,7 +54,10 @@ export default function Home() {
             lightPosition={[-1, 0.5, 0]}
           />
         </div>
-        <div className="col-span-2 col-start-2 row-start-1 ">
+        <div
+          onClick={() => router.push("/data4living")}
+          className="col-span-2 col-start-2 row-start-1"
+        >
           {" "}
           <Mars
             title="Data4Living"

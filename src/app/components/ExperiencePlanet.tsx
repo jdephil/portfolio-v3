@@ -23,7 +23,7 @@ export default function ExperiencePlanet({
     return <primitive object={scene} ref={meshRef} scale={scale} {...props} />
   }
   return (
-    <div className=" h-full w-full">
+    <div className=" h-full w-full cursor-pointer">
       <Canvas camera={{ position: [0, 0, 5] }}>
         <directionalLight
           intensity={directionalIntensity}

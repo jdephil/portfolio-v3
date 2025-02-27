@@ -17,7 +17,7 @@ export default function Kepler({ src, scale, title, lightPosition }: any) {
     return <primitive object={scene} ref={meshRef} scale={scale} {...props} />
   }
   return (
-    <div className="w-full m-auto pl-28">
+    <div className="m-auto pl-28 w-56 hover:cursor-pointer">
       <Canvas camera={{ position: [0, 0, 5] }}>
         <directionalLight intensity={5} position={lightPosition} />
         <ambientLight />

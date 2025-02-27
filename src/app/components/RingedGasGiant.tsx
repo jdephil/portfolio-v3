@@ -17,7 +17,7 @@ export default function RingedGasGiant({ src, scale }: any) {
     return <primitive object={scene} ref={meshRef} scale={scale} {...props} />
   }
   return (
-    <div className="w-full min-h-56 m-auto pr-24">
+    <div className="w-fit min-h-56 hover:cursor-pointer m-auto pr-24">
       <Canvas camera={{ position: [0, 0, 5] }}>
         <ambientLight />
         <directionalLight intensity={5} position={[1, 0.5, 0]} />
