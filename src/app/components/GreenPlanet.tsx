@@ -22,7 +22,7 @@ export default function GreenPlanet({ src, scale, title, lightPosition }: any) {
   return (
     <div
       onClick={() => router.push("/frog-story")}
-      className="w-42 m-auto flex flex-col justify-start hover:cursor-pointer"
+      className="w-36 m-auto flex flex-col justify-start cursor-pointer"
     >
       <Canvas camera={{ position: [0, 0, 5] }}>
         <directionalLight intensity={5} position={lightPosition} />

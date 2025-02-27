@@ -17,7 +17,7 @@ export default function Mars({ src, scale, title, lightPosition }: any) {
     return <primitive object={scene} ref={meshRef} scale={scale} {...props} />
   }
   return (
-    <div className="w-36 hover:cursor-pointer m-auto">
+    <div className="w-36  cursor-pointer m-auto">
       <Canvas camera={{ position: [0, 0, 5] }}>
         <directionalLight intensity={5} position={lightPosition} />
         <ambientLight />

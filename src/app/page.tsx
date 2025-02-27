@@ -7,7 +7,7 @@ import RingedGasGiant from "./components/RingedGasGiant"
 import Odious from "./components/Odious"
 import GreenPlanet from "./components/GreenPlanet"
 import Mars from "./components/Mars"
-
+import Loading from "./components/Loading"
 import { useRouter } from "next/navigation"
 
 export default function Home() {
@@ -15,6 +15,19 @@ export default function Home() {
   return (
     <div>
       <div className="grid grid-cols-4 grid-rows-4">
+        <div className="col-start-4 flex justify-end m-5">
+          <a target="_blank" rel="noreferrer" href="https://github.com/jdephil">
+            Github
+          </a>
+          <p className="mx-2">|</p>
+          <a
+            target="_blank"
+            rel="noreferrer"
+            href="https://www.linkedin.com/in/jenniferpaigedephillips/"
+          >
+            LinkedIn
+          </a>
+        </div>
         <div
           onClick={() => router.push("/basta")}
           className="row-start-2  col-start-1 col-span-2 "

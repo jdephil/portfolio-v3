@@ -17,7 +17,7 @@ export default function PurplePlanet({ scale, title, lightPosition }: any) {
     return <primitive object={scene} ref={meshRef} scale={scale} {...props} />
   }
   return (
-    <div className="m-auto w-72 pr-28 hover:cursor-pointer">
+    <div className="m-auto w-72 pr-28  cursor-pointer">
       <Canvas camera={{ position: [0, 0, 5] }}>
         <directionalLight intensity={5} position={lightPosition} />
         <ambientLight intensity={0.3} />

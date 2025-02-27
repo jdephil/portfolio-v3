@@ -25,7 +25,7 @@ export default function Odious({ src, scale }: any) {
     )
   }
   return (
-    <div className="w-full m-auto ml-20 hover:cursor-pointer">
+    <div className="w-full m-auto ml-20  cursor-pointer">
       <Canvas camera={{ position: [0, 0, 5] }}>
         <ambientLight />
         <directionalLight intensity={5} position={[-1, -0.5, 0]} />

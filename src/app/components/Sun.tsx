@@ -17,7 +17,7 @@ export default function Sun({ src, scale }: any) {
     return <primitive object={scene} ref={meshRef} scale={scale} {...props} />
   }
   return (
-    <div className="flex flex-col justify-between items-center">
+    <div className="flex flex-col justify-between items-center w-fit cursor-pointer">
       <div className="flex flex-col items-end">
         <p className="">Jennifer De Phillips</p>
         <p>Full Stack Software Engineer</p>
