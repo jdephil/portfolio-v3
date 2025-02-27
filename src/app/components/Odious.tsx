@@ -2,9 +2,10 @@ import { useRef } from "react"
 import { Canvas, useFrame } from "@react-three/fiber"
 import { useGLTF } from "@react-three/drei"
 import { Mesh } from "three"
+import { PlanetProps } from "../utils/types"
 
-export default function Odious({ src, scale }: any) {
-  function MeshComponent(props: any) {
+export default function Odious({ src, scale }: PlanetProps) {
+  function MeshComponent() {
     const { scene } = useGLTF(src)
     const meshRef = useRef<Mesh>(null) // Create a reference to the mesh
 
@@ -20,7 +21,6 @@ export default function Odious({ src, scale }: any) {
         object={scene}
         ref={meshRef}
         scale={scale}
-        {...props}
       />
     )
   }

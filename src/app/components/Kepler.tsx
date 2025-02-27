@@ -3,8 +3,14 @@ import { Canvas, useFrame } from "@react-three/fiber"
 import { useGLTF } from "@react-three/drei"
 import { Mesh } from "three"
 import Loading from "./Loading"
-export default function Kepler({ src, scale, title, lightPosition }: any) {
-  function MeshComponent(props: any) {
+import { PlanetProps } from "../utils/types"
+export default function Kepler({
+  src,
+  scale,
+  title,
+  lightPosition,
+}: PlanetProps) {
+  function MeshComponent() {
     const { scene } = useGLTF(src)
     const meshRef = useRef<Mesh>(null) // Create a reference to the mesh
 
@@ -14,7 +20,7 @@ export default function Kepler({ src, scale, title, lightPosition }: any) {
         meshRef.current.rotation.y += 0.005 // Adjust speed as needed
       }
     })
-    return <primitive object={scene} ref={meshRef} scale={scale} {...props} />
+    return <primitive object={scene} ref={meshRef} scale={scale} />
   }
   return (
     <div className="m-auto pl-28 w-56  cursor-pointer">

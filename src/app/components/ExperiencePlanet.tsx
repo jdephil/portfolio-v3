@@ -2,7 +2,7 @@ import { useRef } from "react"
 import { Canvas, useFrame } from "@react-three/fiber"
 import { OrbitControls, useGLTF } from "@react-three/drei"
 import { Mesh } from "three"
-
+import { PlanetProps } from "../utils/types"
 export default function ExperiencePlanet({
   scale,
   lightPosition,
@@ -10,8 +10,8 @@ export default function ExperiencePlanet({
   directionalIntensity,
   ambientIntensity,
   rotateSpeed,
-}: any) {
-  function MeshComponent(props: any) {
+}: PlanetProps) {
+  function MeshComponent() {
     const { scene } = useGLTF(src)
     const meshRef = useRef<Mesh>(null) // Create a reference to the mesh
 
@@ -21,7 +21,7 @@ export default function ExperiencePlanet({
         meshRef.current.rotation.y += rotateSpeed // Adjust speed as needed
       }
     })
-    return <primitive object={scene} ref={meshRef} scale={scale} {...props} />
+    return <primitive object={scene} ref={meshRef} scale={scale} />
   }
   return (
     <div className=" h-full w-full cursor-pointer">
