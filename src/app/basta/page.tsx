@@ -7,7 +7,7 @@ export default function PurplePlanetPage() {
       <div className="h-[600px] w-[600px] ">
         <ExperiencePlanet
           src="/purple_planet/scene.gltf"
-          scale={2.8}
+          scale={1.5}
           lightPosition={[1, -0.5, 0]}
           directionalIntensity={5}
           ambientIntensity={0}

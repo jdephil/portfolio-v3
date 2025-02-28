@@ -28,7 +28,7 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     "src/app/components/PurplePlanetScene.jsx",
-    "src/app/components/ExperiencePlanet.jsx",
+    "src/app/components/ExperiencePlanet.tsx",
     "src/app/components/Sun.jsx"
   ],
   "exclude": ["node_modules"]

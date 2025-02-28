@@ -3,6 +3,7 @@ import { Canvas, useFrame } from "@react-three/fiber"
 import { useGLTF } from "@react-three/drei"
 import { Mesh } from "three"
 import { PlanetProps } from "../utils/types"
+import { Model } from "./PurplePlanetScene"
 export default function PurplePlanet({
   scale,
   title,
@@ -25,7 +26,8 @@ export default function PurplePlanet({
       <Canvas camera={{ position: [0, 0, 5] }}>
         <directionalLight intensity={5} position={lightPosition} />
         <ambientLight intensity={0.3} />
-        <MeshComponent />
+        {/* <MeshComponent /> */}
+        <Model />
       </Canvas>
       <div className="flex flex-col items-center ml-10">
         <p className="">{title}</p>

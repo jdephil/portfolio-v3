@@ -3,6 +3,7 @@ import { Canvas, useFrame } from "@react-three/fiber"
 import { OrbitControls, useGLTF } from "@react-three/drei"
 import { Mesh } from "three"
 import { PlanetProps } from "../utils/types"
+import { Model } from "./PurplePlanetScene"
 export default function ExperiencePlanet({
   scale,
   lightPosition,
@@ -10,19 +11,24 @@ export default function ExperiencePlanet({
   directionalIntensity,
   ambientIntensity,
   rotateSpeed,
-}) {
-  function MeshComponent() {
-    const { scene } = useGLTF(src)
-    const meshRef = useRef < Mesh > null // Create a reference to the mesh
-
-    // Rotate the model on every frame
-    useFrame(() => {
-      if (meshRef.current) {
-        meshRef.current.rotation.y += rotateSpeed // Adjust speed as needed
-      }
-    })
-    return <primitive object={scene} ref={meshRef} scale={scale} />
+}: PlanetProps) {
+  function switchModel() {
+    if (src === "/purple_planet/scene.gltf") {
+      return <Model rotateSpeed={rotateSpeed} scale={scale} />
+    }
   }
+  // function MeshComponent() {
+  //   const { scene } = useGLTF(src)
+  //   const meshRef = useRef<Mesh>(null) // Create a reference to the mesh
+
+  //   // Rotate the model on every frame
+  //   useFrame(() => {
+  //     if (meshRef.current) {
+  //       meshRef.current.rotation.y += rotateSpeed // Adjust speed as needed
+  //     }
+  //   })
+  //   return <primitive object={scene} ref={meshRef} scale={scale} />
+  // }
   return (
     <div className=" h-full w-full cursor-pointer">
       <p className="text-center">
@@ -35,7 +41,8 @@ export default function ExperiencePlanet({
         />
         <ambientLight intensity={ambientIntensity} />
         <OrbitControls />
-        <MeshComponent />
+        {/* <MeshComponent /> */}
+        {switchModel()}
       </Canvas>
     </div>
   )
