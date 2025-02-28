@@ -11,7 +11,7 @@ Title: Purple Planet
 import React from "react"
 import { useGLTF, useAnimations } from "@react-three/drei"
 import { useFrame } from "@react-three/fiber"
-export function Model(props) {
+export function PurplePlanetScene(props) {
   const group = React.useRef()
   const { nodes, materials, animations } = useGLTF("/purple-planet.glb")
   const { actions } = useAnimations(animations, group)

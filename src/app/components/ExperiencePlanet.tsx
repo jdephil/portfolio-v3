@@ -3,7 +3,7 @@ import { Canvas } from "@react-three/fiber"
 import { OrbitControls } from "@react-three/drei"
 // import { Mesh } from "three"
 import { PlanetProps } from "../utils/types"
-import { Model } from "./PurplePlanetScene"
+import { PurplePlanetScene } from "./PurplePlanetScene"
 export default function ExperiencePlanet({
   scale,
   lightPosition,
@@ -14,7 +14,7 @@ export default function ExperiencePlanet({
 }: PlanetProps) {
   function switchModel() {
     if (src === "/purple_planet/scene.gltf") {
-      return <Model rotateSpeed={rotateSpeed} scale={scale} />
+      return <PurplePlanetScene rotateSpeed={rotateSpeed} scale={scale} />
     }
   }
   // function MeshComponent() {

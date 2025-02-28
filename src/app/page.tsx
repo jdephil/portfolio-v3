@@ -37,7 +37,7 @@ export default function Home() {
           {" "}
           <PurplePlanet
             title="Basta"
-            scale={0.5}
+            scale={0.8}
             lightPosition={[1, -0.5, 0]}
           />
         </div>

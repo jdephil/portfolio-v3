@@ -3,9 +3,9 @@ import { Canvas } from "@react-three/fiber"
 // import { useGLTF } from "@react-three/drei"
 // import { Mesh } from "three"
 import { PlanetProps } from "../utils/types"
-import { Model } from "./PurplePlanetScene"
+import { PurplePlanetScene } from "./PurplePlanetScene"
 export default function PurplePlanet({
-  // scale,
+  scale,
   title,
   lightPosition,
 }: PlanetProps) {
@@ -27,7 +27,7 @@ export default function PurplePlanet({
         <directionalLight intensity={5} position={lightPosition} />
         <ambientLight intensity={0.3} />
         {/* <MeshComponent /> */}
-        <Model />
+        <PurplePlanetScene rotateSpeed={0.01} scale={scale} />
       </Canvas>
       <div className="flex flex-col items-center ml-10">
         <p className="">{title}</p>
