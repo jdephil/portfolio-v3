@@ -10,10 +10,10 @@ export default function ExperiencePlanet({
   directionalIntensity,
   ambientIntensity,
   rotateSpeed,
-}: PlanetProps) {
+}) {
   function MeshComponent() {
     const { scene } = useGLTF(src)
-    const meshRef = useRef<Mesh>(null) // Create a reference to the mesh
+    const meshRef = useRef < Mesh > null // Create a reference to the mesh
 
     // Rotate the model on every frame
     useFrame(() => {
@@ -25,6 +25,9 @@ export default function ExperiencePlanet({
   }
   return (
     <div className=" h-full w-full cursor-pointer">
+      <p className="text-center">
+        Click & drag to observe planet, scroll to zoom
+      </p>
       <Canvas camera={{ position: [0, 0, 5] }}>
         <directionalLight
           intensity={directionalIntensity}

@@ -32,7 +32,7 @@ export default function Odious({ scale }: PlanetProps) {
 
         <MeshComponent />
       </Canvas>
-      <div className="text-center h-fit bg-black text-white rounded opacity-60 px-2">
+      <div className="text-center h-fit bg-black text-white rounded bg-opacity-60 px-2">
         <p className="">Squirrel</p>
       </div>
     </div>

@@ -36,7 +36,7 @@ export default function Home() {
         >
           {" "}
           <PurplePlanet
-            title="Project Basta"
+            title="Basta"
             scale={0.5}
             lightPosition={[1, -0.5, 0]}
           />
@@ -68,11 +68,7 @@ export default function Home() {
           {" "}
         </div>
         <div className="col-span-2 col-start-2 row-start-3">
-          <GreenPlanet
-            title="Frog Story"
-            scale={0.006}
-            lightPosition={[0, 1, 0]}
-          />
+          <GreenPlanet title="Frog" scale={0.008} lightPosition={[0, 1, 0]} />
         </div>
       </div>
     </div>
