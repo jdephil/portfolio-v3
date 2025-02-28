@@ -15,7 +15,7 @@ export default function PurplePlanet({
     // Rotate the model on every frame
     useFrame(() => {
       if (meshRef.current) {
-        meshRef.current.rotation.y += 0.02 // Adjust speed as needed
+        meshRef.current.rotation.y += 0.01 // Adjust speed as needed
       }
     })
     return <primitive object={scene} ref={meshRef} scale={scale} />

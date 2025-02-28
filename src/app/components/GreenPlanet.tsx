@@ -28,14 +28,14 @@ export default function GreenPlanet({
   return (
     <div
       onClick={() => router.push("/frog-story")}
-      className="w-36 m-auto flex flex-col justify-start cursor-pointer"
+      className="w-24 h-28 m-auto cursor-pointer "
     >
       <Canvas camera={{ position: [0, 0, 5] }}>
         <directionalLight intensity={5} position={lightPosition} />
         <ambientLight intensity={0.3} />
         <MeshComponent />
       </Canvas>
-      <div className="flex flex-col items-center pl-10">
+      <div className="bg-black text-white text-center rounded">
         <p className="">{title}</p>
       </div>
     </div>
