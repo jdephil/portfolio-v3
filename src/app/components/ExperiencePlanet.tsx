@@ -1,7 +1,7 @@
-import { useRef } from "react"
-import { Canvas, useFrame } from "@react-three/fiber"
-import { OrbitControls, useGLTF } from "@react-three/drei"
-import { Mesh } from "three"
+// import { useRef } from "react"
+import { Canvas } from "@react-three/fiber"
+import { OrbitControls } from "@react-three/drei"
+// import { Mesh } from "three"
 import { PlanetProps } from "../utils/types"
 import { Model } from "./PurplePlanetScene"
 export default function ExperiencePlanet({
