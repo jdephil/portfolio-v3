@@ -46,30 +46,20 @@ export default function Home() {
           className="col-start-1 col-span-2 row-start-3 "
         >
           {" "}
-          <RingedGasGiant src="/ringed_gas_giant/scene.gltf" scale={0.1} />{" "}
+          <RingedGasGiant scale={0.1} />{" "}
         </div>
         <div className="col-span-2 col-start-2 row-start-1 flex align-bottom justify-end  ">
-          <Mars
-            title="Data4Living"
-            src="/mars_gltf/scene.gltf"
-            scale={0.01}
-            lightPosition={[0, -1, 0]}
-          />
+          <Mars title="Data4Living" scale={0.01} lightPosition={[0, -1, 0]} />
         </div>
         <div
           onClick={() => router.push("/squirrel")}
           className="col-start-3 row-start-2 col-span-2"
         >
           {" "}
-          <Odious src="/odious/scene.gltf" scale={0.3} />
+          <Odious scale={0.3} />
         </div>
         <div className="col-start-3 col-span-2 row-start-3">
-          <Kepler
-            title="Wedding"
-            src="/kepler-452b/scene.gltf"
-            scale={0.008}
-            lightPosition={[-1, 0.5, 0]}
-          />
+          <Kepler title="Wedding" scale={0.008} lightPosition={[-1, 0.5, 0]} />
         </div>
         <div
           onClick={() => router.push("/data4living")}
@@ -79,7 +69,6 @@ export default function Home() {
         </div>
         <div className="col-span-2 col-start-2 row-start-3">
           <GreenPlanet
-            src="/green_planet/scene.gltf"
             title="Frog Story"
             scale={0.006}
             lightPosition={[0, 1, 0]}

@@ -6,7 +6,6 @@ import { useRouter } from "next/navigation"
 import { PlanetProps } from "../utils/types"
 
 export default function GreenPlanet({
-  src,
   scale,
   title,
   lightPosition,
@@ -14,7 +13,7 @@ export default function GreenPlanet({
   const router = useRouter()
 
   function MeshComponent() {
-    const { scene } = useGLTF(src)
+    const { scene } = useGLTF("/green_planet/scene.gltf")
     const meshRef = useRef<Mesh>(null) // Create a reference to the mesh
 
     // Rotate the model on every frame

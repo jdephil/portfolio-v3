@@ -2,10 +2,11 @@ import { useRef } from "react"
 import { Canvas, useFrame } from "@react-three/fiber"
 import { useGLTF } from "@react-three/drei"
 import { Mesh } from "three"
+import { PlanetProps } from "../utils/types"
 
-export default function RingedGasGiant({ src, scale }: any) {
-  function MeshComponent(props: any) {
-    const { scene } = useGLTF(src)
+export default function RingedGasGiant({ scale }: PlanetProps) {
+  function MeshComponent() {
+    const { scene } = useGLTF("/ringed_gas_giant/scene.gltf")
     const meshRef = useRef<Mesh>(null) // Create a reference to the mesh
 
     // Rotate the model on every frame
@@ -14,7 +15,7 @@ export default function RingedGasGiant({ src, scale }: any) {
         meshRef.current.rotation.y += 0.01 // Adjust speed as needed
       }
     })
-    return <primitive object={scene} ref={meshRef} scale={scale} {...props} />
+    return <primitive object={scene} ref={meshRef} scale={scale} />
   }
   return (
     <div className="w-fit min-h-56  cursor-pointer m-auto pr-24">

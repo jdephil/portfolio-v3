@@ -6,16 +6,9 @@ import Loading from "./Loading"
 import { PlanetProps } from "../utils/types"
 import { useRouter } from "next/navigation"
 
-export default function Kepler({
-  src,
-  scale,
-  title,
-  lightPosition,
-}: PlanetProps) {
+export default function Kepler({ scale, title, lightPosition }: PlanetProps) {
   const router = useRouter()
   function MeshComponent() {
-    const modelLink = src ? src : ""
-
     const { scene } = useGLTF("/kepler-452b/scene.gltf")
     const meshRef = useRef<Mesh>(null) // Create a reference to the mesh
 

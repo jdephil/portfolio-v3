@@ -4,15 +4,9 @@ import { useGLTF } from "@react-three/drei"
 import { Mesh } from "three"
 import { PlanetProps } from "../utils/types"
 
-export default function Mars({
-  src,
-  scale,
-  title,
-  lightPosition,
-}: PlanetProps) {
+export default function Mars({ scale, title, lightPosition }: PlanetProps) {
   function MeshComponent() {
-    const modelLink = src ? src : ""
-    const { scene } = useGLTF(modelLink)
+    const { scene } = useGLTF("/mars_gltf/scene.gltf")
     const meshRef = useRef<Mesh>(null) // Create a reference to the mesh
 
     // Rotate the model on every frame
