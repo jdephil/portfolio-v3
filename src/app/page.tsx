@@ -1,11 +1,11 @@
 "use client"
 
-import Kepler from "./components/Kepler"
-import PurplePlanet from "./components/PurplePlanet"
-import RingedGasGiant from "./components/RingedGasGiant"
+// import Kepler from "./components/Kepler"
+// import PurplePlanet from "./components/PurplePlanet"
+// import RingedGasGiant from "./components/RingedGasGiant"
 import Odious from "./components/Odious"
-import GreenPlanet from "./components/GreenPlanet"
-import Mars from "./components/Mars"
+// import GreenPlanet from "./components/GreenPlanet"
+// import Mars from "./components/Mars"
 
 export default function Home() {
   return (
