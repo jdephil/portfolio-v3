@@ -9,8 +9,8 @@ import Mars from "./components/Mars"
 
 export default function Home() {
   return (
-    <div className="bg-[url('/galaxy.jpeg')] bg-cover h-screen">
-      <div className="m-5">
+    <div className="flex flex-col h-screen">
+      <div className="m-5 text-white">
         <p>Jennifer De Phillips</p>
         <p>Full Stack Software Engineer</p>
         <div className="flex">
@@ -27,32 +27,38 @@ export default function Home() {
           </a>
         </div>
       </div>
-      <div className="grid grid-cols-4 grid-rows-4 mt-20">
-        <div className="row-start-2  col-start-1 col-span-2 flex">
-          {" "}
-          <PurplePlanet
-            title="Basta"
-            scale={1.1}
-            lightPosition={[1, -0.5, 0]}
-          />
-        </div>
-        <div className="col-start-1 col-span-1 row-start-3 flex">
-          {" "}
-          <RingedGasGiant scale={0.18} />{" "}
-        </div>
-        <div className="col-span-2 col-start-2 row-start-1 flex align-bottom justify-end  ">
-          <Mars title="Data4Living" scale={0.02} lightPosition={[0, -1, 0]} />
-        </div>
-        <div className="col-start-3 row-start-2 col-span-2 flex align-middle justify-center">
-          {" "}
-          <Odious scale={0.3} />
-        </div>
-        <div className="col-start-3 col-span-2 row-start-3">
-          <Kepler title="Wedding" scale={0.008} lightPosition={[-1, 0.5, 0]} />
-        </div>
+      <div className="bg-[url('/galaxy.jpeg')] bg-cover flex flex-col justify-center flex-1">
+        <div className="grid grid-cols-4 grid-rows-4 min-h-full mt-20">
+          <div className="row-start-2  col-start-1 col-span-2 flex">
+            {" "}
+            <PurplePlanet
+              title="Basta"
+              scale={1.1}
+              lightPosition={[1, -0.5, 0]}
+            />
+          </div>
+          <div className="col-start-1 col-span-1 row-start-3">
+            {" "}
+            <GreenPlanet title="Frog" scale={0.008} lightPosition={[0, 1, 0]} />
+          </div>
+          <div className="col-span-2 col-start-2 row-start-1 flex self-end">
+            <Mars title="Data4Living" scale={0.02} lightPosition={[0, -1, 0]} />
+          </div>
+          <div className="col-start-3 row-start-2 col-span-2 flex justify-center">
+            {" "}
+            <Odious scale={0.3} />
+          </div>
+          <div className="col-start-3 col-span-2 row-start-3">
+            <Kepler
+              title="Wedding"
+              scale={0.008}
+              lightPosition={[-1, 0.5, 0]}
+            />
+          </div>
 
-        <div className="col-span-2 col-start-2 row-start-4 flex justify-center items-end">
-          <GreenPlanet title="Frog" scale={0.008} lightPosition={[0, 1, 0]} />
+          <div className="col-span-2 col-start-2 row-span-2 row-start-4 flex">
+            <RingedGasGiant scale={0.18} />{" "}
+          </div>
         </div>
       </div>
     </div>

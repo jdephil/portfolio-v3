@@ -12,10 +12,10 @@ export default function GreenPlanet({
   const router = useRouter()
 
   return (
-    <div className="w-28 flex">
+    <div className="w-28 m-auto flex">
       <div
         onClick={() => router.push("/frog-story")}
-        className="h-24 w-24 m-auto planetBorder"
+        className="h-24 w-24 planetBorder"
       >
         <Suspense fallback={<Loading />}>
           <Canvas camera={{ position: [0, 0, 5] }}>
