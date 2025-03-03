@@ -1,9 +1,9 @@
 import { Suspense } from "react"
 import { Canvas } from "@react-three/fiber"
-import Loading from "./Loading"
 import { PlanetProps } from "../utils/types"
 import { useRouter } from "next/navigation"
 import { KeplerScene } from "./KeplerScene"
+import Loading from "./Loading"
 export default function Kepler({ scale, title, lightPosition }: PlanetProps) {
   const router = useRouter()
 

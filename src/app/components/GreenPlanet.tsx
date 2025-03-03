@@ -4,6 +4,7 @@ import { useRouter } from "next/navigation"
 import { PlanetProps } from "../utils/types"
 import { GreenPlanetScene } from "./GreenPlanetScene"
 import Loading from "./Loading"
+// import { PurplePlanetScene } from "./PurplePlanetScene"
 export default function GreenPlanet({
   scale,
   title,
@@ -18,9 +19,13 @@ export default function GreenPlanet({
         className="h-24 w-24 planetBorder"
       >
         <Suspense fallback={<Loading />}>
-          <Canvas camera={{ position: [0, 0, 5] }}>
+          <Canvas
+            camera={{ position: [0, 0, 5] }}
+            fallback={<div>Sorry no WebGL supported!</div>}
+          >
             <directionalLight intensity={5} position={lightPosition} />
             <ambientLight intensity={0.7} />
+
             <GreenPlanetScene scale={scale} rotateSpeed={0.001} />
           </Canvas>
         </Suspense>

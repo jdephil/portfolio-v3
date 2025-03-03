@@ -43,7 +43,9 @@ export default function ExperiencePlanet({
         />
         <ambientLight intensity={ambientIntensity} />
         <OrbitControls />
-        {switchModel()}
+        <PurplePlanetScene rotateSpeed={rotateSpeed} scale={1} />
+        <OdiousScene rotateSpeed={rotateSpeed} scale={0.3} />
+        {/* {switchModel()} */}
       </Canvas>
     </div>
   )

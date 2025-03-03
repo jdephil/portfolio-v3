@@ -10,7 +10,7 @@ Title: Purple Planet
 
 import React from "react"
 import { useGLTF, useAnimations } from "@react-three/drei"
-import { useFrame } from "@react-three/fiber"
+import { useFrame, useLoader } from "@react-three/fiber"
 export function PurplePlanetScene(props) {
   const group = React.useRef()
   const { nodes, materials, animations } = useGLTF("/purple-planet.glb")
@@ -21,7 +21,12 @@ export function PurplePlanetScene(props) {
   return (
     <group ref={group} {...props} dispose={null}>
       <group name="Sketchfab_Scene">
-        <group name="Root" rotation={[-Math.PI / 2, 0, 0]} scale={props.scale}>
+        <group
+          name="Root"
+          position={[0, -2, 0]}
+          rotation={[-Math.PI / 2, 0, 0]}
+          scale={props.scale}
+        >
           <group name="Planet" rotation={[0, 0, Math.PI / 2]}>
             <group
               name="Clouds_0"
