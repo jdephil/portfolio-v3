@@ -4,7 +4,7 @@ import { useGLTF } from "@react-three/drei"
 import { Mesh } from "three"
 import { useRouter } from "next/navigation"
 import { PlanetProps } from "../utils/types"
-
+import { GreenPlanetScene } from "./GreenPlanetScene"
 export default function GreenPlanet({
   scale,
   title,
@@ -36,7 +36,7 @@ export default function GreenPlanet({
         <Canvas camera={{ position: [0, 0, 5] }}>
           <directionalLight intensity={5} position={lightPosition} />
           <ambientLight intensity={0.7} />
-          <MeshComponent />
+          <GreenPlanetScene scale={scale} rotateSpeed={0.001} />
         </Canvas>
       </div>
       <div className="bg-black text-white text-center rounded px-2 h-fit py-1 opacity-80">

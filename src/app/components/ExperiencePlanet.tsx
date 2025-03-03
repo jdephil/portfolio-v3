@@ -4,6 +4,7 @@ import { PlanetProps } from "../utils/types"
 import { PurplePlanetScene } from "./PurplePlanetScene"
 import { OdiousScene } from "./OdiousScene"
 import { KeplerScene } from "./KeplerScene"
+import { GreenPlanetScene } from "./GreenPlanetScene"
 export default function ExperiencePlanet({
   scale,
   lightPosition,
@@ -16,13 +17,12 @@ export default function ExperiencePlanet({
     switch (src) {
       case "/purple_planet/scene.gltf":
         return <PurplePlanetScene rotateSpeed={rotateSpeed} scale={scale} />
-        break
       case "/odious/scene.gltf":
         return <OdiousScene rotateSpeed={rotateSpeed} scale={scale} />
-        break
       case "/kepler-452b/scene.gltf":
         return <KeplerScene rotateSpeed={rotateSpeed} scale={scale} />
-        break
+      case "/green_planet/scene.gltf":
+        return <GreenPlanetScene rotateSpeed={rotateSpeed} scale={scale} />
     }
   }
   return (
