@@ -8,10 +8,10 @@ export default function Odious({ scale }: PlanetProps) {
   const router = useRouter()
 
   return (
-    <div className=" flex">
+    <div className="w-28 flex">
       <div
         onClick={() => router.push("/squirrel")}
-        className=" m-auto planetBorder"
+        className="w-28 h-28 m-auto planetBorder"
       >
         <Suspense fallback={<Loading />}>
           <Canvas camera={{ position: [0, -1, 5] }}>
