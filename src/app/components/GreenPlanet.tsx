@@ -31,7 +31,7 @@ export default function GreenPlanet({
     >
       <div
         onClick={() => router.push("/data4living")}
-        className="border-2 border-cyan-500 w-full rounded-full cursor-pointer"
+        className="border-4 border-cyan-500 w-full rounded-full cursor-pointer hover:border-[#F3DAAF] hover:border-opacity-60"
       >
         <Canvas camera={{ position: [0, 0, 5] }}>
           <directionalLight intensity={5} position={lightPosition} />
@@ -39,8 +39,8 @@ export default function GreenPlanet({
           <MeshComponent />
         </Canvas>
       </div>
-      <div className="bg-black text-white text-center rounded px-2 h-fit py-1">
-        <p className="">{title}</p>
+      <div className="bg-black text-white text-center rounded px-2 h-fit py-1 opacity-80">
+        <p className="opacity-100">{title}</p>
       </div>
     </div>
   )

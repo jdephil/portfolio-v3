@@ -54,4 +54,4 @@ export function PurplePlanetScene(props) {
   )
 }
 
-useGLTF.preload("/scene-transformed.glb")
+useGLTF.preload("/purple-planet.glb")

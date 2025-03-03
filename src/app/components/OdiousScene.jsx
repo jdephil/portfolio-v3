@@ -10,11 +10,16 @@ Title: Odious
 
 import React from "react"
 import { useGLTF } from "@react-three/drei"
+import { useFrame } from "@react-three/fiber"
 
-export function Model(props) {
-  const { nodes, materials } = useGLTF("/scene-transformed.glb")
+export function OdiousScene(props) {
+  const group = React.useRef()
+  const { nodes, materials } = useGLTF("/odious.glb")
+  useFrame(() => {
+    group.current.rotation.y += props.rotateSpeed
+  })
   return (
-    <group {...props} dispose={null}>
+    <group ref={group} {...props} dispose={null} scale={props.scale}>
       <mesh
         geometry={nodes.Sphere.geometry}
         material={materials.SurfaceMaterial}
@@ -24,11 +29,11 @@ export function Model(props) {
       <mesh
         geometry={nodes.Circle.geometry}
         material={materials.RingMaterial}
-        rotation={[-Math.PI / 2, 0, 0]}
+        rotation={[-Math.PI / 2, -0.2, 0]}
         scale={[5.892, 5.892, 6]}
       />
     </group>
   )
 }
 
-useGLTF.preload("/scene-transformed.glb")
+useGLTF.preload("/odious.glb")

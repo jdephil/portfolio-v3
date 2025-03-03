@@ -30,14 +30,11 @@ export default function Home() {
         </div>
       </div>
       <div className="grid grid-cols-4 grid-rows-3 ">
-        <div
-          onClick={() => router.push("/basta")}
-          className="row-start-2  col-start-1 col-span-2 "
-        >
+        <div className="row-start-2  col-start-1 col-span-2 ">
           {" "}
           <PurplePlanet
             title="Basta"
-            scale={0.8}
+            scale={1.1}
             lightPosition={[1, -0.5, 0]}
           />
         </div>
@@ -51,10 +48,7 @@ export default function Home() {
         <div className="col-span-2 col-start-2 row-start-1 flex align-bottom justify-end  ">
           <Mars title="Data4Living" scale={0.01} lightPosition={[0, -1, 0]} />
         </div>
-        <div
-          onClick={() => router.push("/squirrel")}
-          className="col-start-3 row-start-2 col-span-2"
-        >
+        <div className="col-start-3 row-start-2 col-span-2">
           {" "}
           <Odious scale={0.3} />
         </div>
