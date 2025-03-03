@@ -4,7 +4,6 @@ import { useRouter } from "next/navigation"
 import { PlanetProps } from "../utils/types"
 import { OdiousScene } from "./OdiousScene"
 import Loading from "./Loading"
-import { PurplePlanetScene } from "./PurplePlanetScene"
 export default function Odious({ scale }: PlanetProps) {
   const router = useRouter()
 
@@ -18,7 +17,6 @@ export default function Odious({ scale }: PlanetProps) {
           <Canvas camera={{ position: [0, -1, 5] }}>
             <ambientLight />
             <directionalLight intensity={5} position={[-1, -0.5, 0]} />
-            <PurplePlanetScene rotateSpeed={0.01} scale={1} />
             <OdiousScene rotateSpeed={0.03} scale={scale} />
           </Canvas>
         </Suspense>

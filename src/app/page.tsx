@@ -1,11 +1,11 @@
 "use client"
 
-// import Kepler from "./components/Kepler"
-// import PurplePlanet from "./components/PurplePlanet"
-// import RingedGasGiant from "./components/RingedGasGiant"
+import Kepler from "./components/Kepler"
+import PurplePlanet from "./components/PurplePlanet"
+import RingedGasGiant from "./components/RingedGasGiant"
 import Odious from "./components/Odious"
-// import GreenPlanet from "./components/GreenPlanet"
-// import Mars from "./components/Mars"
+import GreenPlanet from "./components/GreenPlanet"
+import Mars from "./components/Mars"
 
 export default function Home() {
   return (
@@ -31,33 +31,33 @@ export default function Home() {
         <div className="grid grid-cols-4 grid-rows-4 min-h-full mt-20">
           <div className="row-start-2  col-start-1 col-span-2 flex">
             {" "}
-            {/* <PurplePlanet
+            <PurplePlanet
               title="Basta"
               scale={1.1}
               lightPosition={[1, -0.5, 0]}
-            /> */}
+            />
           </div>
           <div className="col-start-1 col-span-1 row-start-3">
             {" "}
-            {/* <GreenPlanet title="Frog" scale={0.008} lightPosition={[0, 1, 0]} /> */}
+            <GreenPlanet title="Frog" scale={0.008} lightPosition={[0, 1, 0]} />
           </div>
           <div className="col-span-2 col-start-2 row-start-1 flex self-end">
-            {/* <Mars title="Data4Living" scale={0.02} lightPosition={[0, -1, 0]} /> */}
+            <Mars title="Data4Living" scale={0.02} lightPosition={[0, -1, 0]} />
           </div>
           <div className="col-start-3 row-start-2 col-span-2 flex justify-center">
             {" "}
             <Odious scale={0.3} />
           </div>
           <div className="col-start-3 col-span-2 row-start-3">
-            {/* <Kepler
+            <Kepler
               title="Wedding"
               scale={0.008}
               lightPosition={[-1, 0.5, 0]}
-            /> */}
+            />
           </div>
 
           <div className="col-span-2 col-start-2 row-span-2 row-start-4 flex">
-            {/* <RingedGasGiant scale={0.18} />{" "} */}
+            <RingedGasGiant scale={0.18} />{" "}
           </div>
         </div>
       </div>

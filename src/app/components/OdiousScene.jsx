@@ -19,13 +19,7 @@ export function OdiousScene(props) {
     group.current.rotation.y += props.rotateSpeed
   })
   return (
-    <group
-      position={[0, 1, 0]}
-      ref={group}
-      {...props}
-      dispose={null}
-      scale={props.scale}
-    >
+    <group ref={group} {...props} dispose={null} scale={props.scale}>
       <mesh
         geometry={nodes.Sphere.geometry}
         material={materials.SurfaceMaterial}
