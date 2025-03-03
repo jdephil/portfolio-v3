@@ -6,10 +6,8 @@ import RingedGasGiant from "./components/RingedGasGiant"
 import Odious from "./components/Odious"
 import GreenPlanet from "./components/GreenPlanet"
 import Mars from "./components/Mars"
-import { useRouter } from "next/navigation"
 
 export default function Home() {
-  const router = useRouter()
   return (
     <div className="bg-[url('/galaxy.jpeg')] bg-cover h-screen">
       <div className="m-5">
