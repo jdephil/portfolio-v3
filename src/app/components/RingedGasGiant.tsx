@@ -17,7 +17,7 @@ export default function RingedGasGiant({ scale }: PlanetProps) {
         <Suspense fallback={<Loading />}>
           <Canvas camera={{ position: [0, 0, 5] }}>
             <ambientLight />
-            <directionalLight intensity={5} position={[1, 0.5, 0]} />
+            <directionalLight intensity={5} position={[0, 1, 0]} />
 
             <RingedGasGiantScene scale={scale} rotateSpeed={0.01} />
           </Canvas>

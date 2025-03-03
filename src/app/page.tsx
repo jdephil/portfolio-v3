@@ -39,7 +39,11 @@ export default function Home() {
           </div>
           <div className="col-start-1 col-span-1 row-start-3">
             {" "}
-            <GreenPlanet title="Frog" scale={0.008} lightPosition={[0, 1, 0]} />
+            <GreenPlanet
+              title="Frog"
+              scale={0.008}
+              lightPosition={[1, 0.5, 0]}
+            />
           </div>
           <div className="col-span-2 col-start-2 row-start-1 flex self-end">
             <Mars title="Data4Living" scale={0.02} lightPosition={[0, -1, 0]} />
