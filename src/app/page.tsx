@@ -30,7 +30,7 @@ export default function Home() {
         </div>
       </div>
       <div className="grid grid-cols-4 grid-rows-3 ">
-        <div className="row-start-2  col-start-1 col-span-2 ">
+        <div className="row-start-2  col-start-1 col-span-2 flex">
           {" "}
           <PurplePlanet
             title="Basta"
@@ -38,17 +38,14 @@ export default function Home() {
             lightPosition={[1, -0.5, 0]}
           />
         </div>
-        <div
-          onClick={() => router.push("/lexx")}
-          className="col-start-1 col-span-2 row-start-3 "
-        >
+        <div className="col-start-1 col-span-1 row-start-3 flex">
           {" "}
-          <RingedGasGiant scale={0.1} />{" "}
+          <RingedGasGiant scale={0.18} />{" "}
         </div>
         <div className="col-span-2 col-start-2 row-start-1 flex align-bottom justify-end  ">
           <Mars title="Data4Living" scale={0.01} lightPosition={[0, -1, 0]} />
         </div>
-        <div className="col-start-3 row-start-2 col-span-2">
+        <div className="col-start-3 row-start-2 col-span-2 flex align-middle justify-center">
           {" "}
           <Odious scale={0.3} />
         </div>

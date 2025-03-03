@@ -5,6 +5,7 @@ import { PurplePlanetScene } from "./PurplePlanetScene"
 import { OdiousScene } from "./OdiousScene"
 import { KeplerScene } from "./KeplerScene"
 import { GreenPlanetScene } from "./GreenPlanetScene"
+import { RingedGasGiantScene } from "./RingedGasGiantScene"
 export default function ExperiencePlanet({
   scale,
   lightPosition,
@@ -23,6 +24,8 @@ export default function ExperiencePlanet({
         return <KeplerScene rotateSpeed={rotateSpeed} scale={scale} />
       case "/green_planet/scene.gltf":
         return <GreenPlanetScene rotateSpeed={rotateSpeed} scale={scale} />
+      case "/ringed_gas_giant/scene.gltf":
+        return <RingedGasGiantScene rotateSpeed={rotateSpeed} scale={scale} />
     }
   }
   return (

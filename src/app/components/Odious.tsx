@@ -6,10 +6,10 @@ export default function Odious({ scale }: PlanetProps) {
   const router = useRouter()
 
   return (
-    <div className="w-28 h-28 m-auto cursor-pointer flex">
+    <div className=" cursor-pointer flex">
       <div
         onClick={() => router.push("/squirrel")}
-        className="border-4 border-cyan-500 w-full rounded-full cursor-pointer border-opacity-60 hover:border-[#F3DAAF] hover:border-opacity-60"
+        className="w-28 h-28 m-auto border-4 border-cyan-500  rounded-full cursor-pointer border-opacity-60 hover:border-[#F3DAAF] hover:border-opacity-60"
       >
         <Canvas camera={{ position: [0, -1, 5] }}>
           <ambientLight />
