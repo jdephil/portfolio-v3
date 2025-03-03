@@ -17,7 +17,7 @@ export default function Data4Living() {
       </div>
       <div className="w-[500px] self-center ">
         <Experience
-          imgSource="/data4Living.png"
+          imgSource="/data4living.png"
           description="Data4Living simplifies your document management and helps prepare your
           documents to complete significant life events."
           stack="Vue, Django, PostgreSQL, Heroku, Stripe"
