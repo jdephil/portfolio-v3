@@ -15,7 +15,7 @@ export default function GreenPlanet({
     <div className="w-28 flex">
       <div
         onClick={() => router.push("/frog-story")}
-        className="h-24 w-24 m-auto border-4 border-cyan-500 rounded-full cursor-pointer hover:border-[#F3DAAF] hover:border-opacity-60"
+        className="h-24 w-24 m-auto planetBorder"
       >
         <Suspense fallback={<Loading />}>
           <Canvas camera={{ position: [0, 0, 5] }}>
@@ -25,7 +25,7 @@ export default function GreenPlanet({
           </Canvas>
         </Suspense>
       </div>
-      <div className="bg-black text-white text-center rounded px-2 h-fit py-1 opacity-80">
+      <div className="planetLabel">
         <p className="opacity-100">{title}</p>
       </div>
     </div>

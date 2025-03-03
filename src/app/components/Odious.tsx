@@ -9,7 +9,7 @@ export default function Odious({ scale }: PlanetProps) {
     <div className=" flex">
       <div
         onClick={() => router.push("/squirrel")}
-        className="w-28 h-28 m-auto border-4 border-cyan-500  rounded-full cursor-pointer border-opacity-60 hover:border-[#F3DAAF] hover:border-opacity-60"
+        className="w-28 h-28 m-auto planetBorder"
       >
         <Canvas camera={{ position: [0, -1, 5] }}>
           <ambientLight />
@@ -18,7 +18,7 @@ export default function Odious({ scale }: PlanetProps) {
           <OdiousScene rotateSpeed={0.03} scale={scale} />
         </Canvas>
       </div>
-      <div className="text-center h-fit bg-black text-white rounded bg-opacity-60 px-2">
+      <div className="planetLabel">
         <p className="">Squirrel</p>
       </div>
     </div>

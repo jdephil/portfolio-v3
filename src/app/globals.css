@@ -19,3 +19,12 @@ body {
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+@layer components {
+  .planetLabel {
+    @apply bg-black text-white text-center rounded px-2 h-fit py-1 opacity-80;
+  }
+  .planetBorder {
+    @apply border-4 border-cyan-500 border-double rounded-full cursor-pointer border-opacity-60 hover:border-[#F3DAAF] hover:border-opacity-60;
+  }
+}

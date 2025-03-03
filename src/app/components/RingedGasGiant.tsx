@@ -10,7 +10,7 @@ export default function RingedGasGiant({ scale }: PlanetProps) {
     <div className=" m-auto flex ">
       <div
         onClick={() => router.push("/lexx")}
-        className="h-28 w-28 border-4 border-cyan-500 rounded-full cursor-pointer border-opacity-60 hover:border-[#F3DAAF] hover:border-opacity-60"
+        className="h-28 w-28 planetBorder"
       >
         <Canvas camera={{ position: [0, 0, 5] }}>
           <ambientLight />
@@ -19,7 +19,7 @@ export default function RingedGasGiant({ scale }: PlanetProps) {
           <RingedGasGiantScene scale={scale} rotateSpeed={0.01} />
         </Canvas>
       </div>
-      <div className="text-center h-fit bg-black text-white rounded bg-opacity-80 px-2">
+      <div className="planetLabel">
         <p className="opacity-100">Lexx</p>
       </div>
     </div>
