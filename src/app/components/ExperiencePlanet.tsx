@@ -6,6 +6,7 @@ import { OdiousScene } from "./OdiousScene"
 import { KeplerScene } from "./KeplerScene"
 import { GreenPlanetScene } from "./GreenPlanetScene"
 import { RingedGasGiantScene } from "./RingedGasGiantScene"
+import { MarsScene } from "./MarsScene"
 export default function ExperiencePlanet({
   scale,
   lightPosition,
@@ -26,6 +27,8 @@ export default function ExperiencePlanet({
         return <GreenPlanetScene rotateSpeed={rotateSpeed} scale={scale} />
       case "/ringed_gas_giant/scene.gltf":
         return <RingedGasGiantScene rotateSpeed={rotateSpeed} scale={scale} />
+      case "/mars_gltf/scene.gltf":
+        return <MarsScene rotateSpeed={rotateSpeed} scale={scale} />
     }
   }
   return (

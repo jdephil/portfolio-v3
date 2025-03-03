@@ -6,7 +6,7 @@ export default function Odious({ scale }: PlanetProps) {
   const router = useRouter()
 
   return (
-    <div className=" cursor-pointer flex">
+    <div className=" flex">
       <div
         onClick={() => router.push("/squirrel")}
         className="w-28 h-28 m-auto border-4 border-cyan-500  rounded-full cursor-pointer border-opacity-60 hover:border-[#F3DAAF] hover:border-opacity-60"

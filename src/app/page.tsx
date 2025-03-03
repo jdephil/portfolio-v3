@@ -29,7 +29,7 @@ export default function Home() {
           </a>
         </div>
       </div>
-      <div className="grid grid-cols-4 grid-rows-3 ">
+      <div className="grid grid-cols-4 grid-rows-4 mt-20">
         <div className="row-start-2  col-start-1 col-span-2 flex">
           {" "}
           <PurplePlanet
@@ -43,7 +43,7 @@ export default function Home() {
           <RingedGasGiant scale={0.18} />{" "}
         </div>
         <div className="col-span-2 col-start-2 row-start-1 flex align-bottom justify-end  ">
-          <Mars title="Data4Living" scale={0.01} lightPosition={[0, -1, 0]} />
+          <Mars title="Data4Living" scale={0.02} lightPosition={[0, -1, 0]} />
         </div>
         <div className="col-start-3 row-start-2 col-span-2 flex align-middle justify-center">
           {" "}
@@ -52,13 +52,8 @@ export default function Home() {
         <div className="col-start-3 col-span-2 row-start-3">
           <Kepler title="Wedding" scale={0.008} lightPosition={[-1, 0.5, 0]} />
         </div>
-        <div
-          onClick={() => router.push("/data4living")}
-          className="col-span-2 col-start-2 row-start-1"
-        >
-          {" "}
-        </div>
-        <div className="col-span-2 col-start-2 row-start-3">
+
+        <div className="col-span-2 col-start-2 row-start-4 flex justify-center items-end">
           <GreenPlanet title="Frog" scale={0.008} lightPosition={[0, 1, 0]} />
         </div>
       </div>
