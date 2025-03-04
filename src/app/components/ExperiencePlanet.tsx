@@ -14,26 +14,13 @@ export default function ExperiencePlanet({
   directionalIntensity,
   ambientIntensity,
   rotateSpeed,
-  position,
 }: PlanetProps) {
   function switchModel() {
     switch (src) {
       case "/purple_planet/scene.gltf":
-        return (
-          <PurplePlanetScene
-            rotateSpeed={rotateSpeed}
-            scale={scale}
-            position={position}
-          />
-        )
+        return <PurplePlanetScene rotateSpeed={rotateSpeed} scale={scale} />
       case "/odious/scene.gltf":
-        return (
-          <OdiousScene
-            position={position}
-            rotateSpeed={rotateSpeed}
-            scale={scale}
-          />
-        )
+        return <OdiousScene rotateSpeed={rotateSpeed} scale={scale} />
       case "/kepler-452b/scene.gltf":
         return <KeplerScene rotateSpeed={rotateSpeed} scale={scale} />
       case "/green_planet/scene.gltf":

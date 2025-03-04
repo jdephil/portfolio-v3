@@ -4,25 +4,37 @@ Command: npx gltfjsx@6.5.3 mars_gltf/scene.gltf --transform --aggresive
 Files: mars_gltf/scene.gltf [4.47KB] > /Users/jpdephillips/Downloads/scene-transformed.glb [447.48KB] (-9911%)
 */
 
-import React from "react"
+import { useRef, useState, useEffect } from "react"
 import { useGLTF } from "@react-three/drei"
 import { useFrame } from "@react-three/fiber"
+import { useRouter } from "next/navigation"
+import { PLANET_LABELS } from "../utils/consts"
 
 export function MarsScene(props) {
-  const group = React.useRef()
+  const group = useRef()
+  const router = useRouter()
+  const [hovered, setHover] = useState(false)
 
   const { nodes, materials } = useGLTF("/mars.glb")
   useFrame(() => {
     group.current.rotation.y += props.rotateSpeed
   })
-
+  useEffect(() => {
+    document.body.style.cursor = hovered ? "pointer" : "auto"
+    props.setPlanetLabel
+      ? props.setPlanetLabel(hovered ? PLANET_LABELS[3] : PLANET_LABELS[0])
+      : null
+    return () => (document.body.style.cursor = "auto")
+  }, [hovered])
   return (
     <group
-      position={[1, 2, 0]}
+      onClick={() => router.push("/data4living")}
+      onPointerOver={(e) => (e.stopPropagation(), setHover(true))}
+      onPointerOut={(e) => setHover(false)}
       ref={group}
       {...props}
       dispose={null}
-      scale={props.scale}
+      scale={hovered && props.landing ? 0.05 : props.scale}
     >
       <mesh
         geometry={nodes.Earth_Planet_0.geometry}

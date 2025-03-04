@@ -42,7 +42,7 @@ export default function Home() {
       </div>
       <div className=" flex flex-col justify-center flex-1">
         <Canvas
-          camera={{ zoom: 40, near: 0.1, far: 3000, position: [0, 2, 300] }}
+          camera={{ zoom: 38, near: 0.1, far: 3000, position: [0, 2, 300] }}
           orthographic={true}
           fallback={<div>Sorry no WebGL supported!</div>}
         >
@@ -66,12 +66,31 @@ export default function Home() {
           <MarsScene
             scale={0.028}
             rotateSpeed={0.005}
+            position={[1, 2, 0]}
             landing={true}
             setPlanetLabel={setPlanetLabel}
           />
-          <RingedGasGiantScene scale={0.25} rotateSpeed={0.01} />
-          <GreenPlanetScene scale={0.004} rotateSpeed={0.001} />
-          <KeplerScene rotateSpeed={0.005} scale={0.004} />
+          <RingedGasGiantScene
+            scale={0.25}
+            rotateSpeed={0.01}
+            landing={true}
+            setPlanetLabel={setPlanetLabel}
+            position={[6, 4.5, 0]}
+          />
+          <GreenPlanetScene
+            scale={0.004}
+            rotateSpeed={0.001}
+            position={[10, 6.5, 0]}
+            landing={true}
+            setPlanetLabel={setPlanetLabel}
+          />
+          <KeplerScene
+            rotateSpeed={0.005}
+            scale={0.004}
+            position={[13, 8, 0]}
+            landing={true}
+            setPlanetLabel={setPlanetLabel}
+          />
         </Canvas>
       </div>
       <div className="bg-black border-4 border-white w-56 h-64 z-20 absolute right-20 top-[60%] m-auto p-5 border-double flex flex-col gap-2">
