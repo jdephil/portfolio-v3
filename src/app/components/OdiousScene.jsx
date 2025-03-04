@@ -9,10 +9,10 @@ Title: Odious
 */
 
 import { useRef, useState, useEffect } from "react"
-import { useGLTF, Html } from "@react-three/drei"
+import { useGLTF } from "@react-three/drei"
 import { useFrame } from "@react-three/fiber"
 import { useRouter } from "next/navigation"
-
+import { PLANET_LABELS } from "../utils/consts"
 export function OdiousScene(props) {
   const group = useRef()
   const router = useRouter()
@@ -23,6 +23,7 @@ export function OdiousScene(props) {
   })
   useEffect(() => {
     document.body.style.cursor = hovered ? "pointer" : "auto"
+    props.setPlanetLabel(hovered ? PLANET_LABELS[2] : PLANET_LABELS[0])
     return () => (document.body.style.cursor = "auto")
   }, [hovered])
 
