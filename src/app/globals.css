@@ -20,4 +20,7 @@ body {
   .planetBorder {
     @apply border-4 border-cyan-500 border-double rounded-full cursor-pointer border-opacity-60 hover:border-[#F3DAAF] hover:border-opacity-60;
   }
+  .experience {
+    @apply w-[600px] self-center;
+  }
 }

@@ -9,14 +9,13 @@ export default function Squirrel() {
         <ExperiencePlanet
           src="/odious/scene.gltf"
           scale={0.6}
-          lightPosition={[-1, -0.5, 0]}
-          directionalIntensity={3}
+          directionalIntensity={4}
           ambientIntensity={0.8}
           rotateSpeed={0.01}
           position={[0, 0, 0]}
         />
       </div>
-      <div className="w-[500px] self-center ">
+      <div className="experience">
         <Experience
           imgSource="/squirrel.png"
           description="Squirrel Financial Literacy Programme is a web-based application that can be accessed via desktop, tablet or smartphone. It is designed to give 7-18 year olds the opportunity to experience a wide range of real world financial management activities. Students learn to manage bank accounts, earn income, pay bills, and purchase items."

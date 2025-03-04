@@ -11,8 +11,8 @@ export default function Experience(props: {
         <Image
           src={props.imgSource}
           alt="data4Living"
-          width={500}
-          height={500}
+          width={600}
+          height={600}
         />
       </div>
       <div>

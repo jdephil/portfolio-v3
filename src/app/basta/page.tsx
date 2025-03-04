@@ -8,14 +8,13 @@ export default function PurplePlanetPage() {
         <ExperiencePlanet
           src="/purple_planet/scene.gltf"
           scale={1.5}
-          lightPosition={[1, -0.5, 0]}
           directionalIntensity={5}
           ambientIntensity={0}
           rotateSpeed={0.002}
           position={[0, 0, 0]}
         />
       </div>
-      <div className="w-[500px] self-center ">
+      <div className="experience">
         <Experience
           imgSource="/projectBasta.png"
           description="Basta is bridging the employment gap and building careers for first generation students through award winning technology and robust employer partnerships."

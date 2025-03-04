@@ -40,7 +40,7 @@ export function PurplePlanetScene(props) {
           onPointerOut={(e) => setHover(false)}
           name="Root"
           rotation={[-Math.PI / 2, 0.2, 0]}
-          scale={hovered && props.landing ? 2.5 : props.scale}
+          scale={hovered && props.landing ? 2.3 : props.scale}
         >
           <group name="Planet" rotation={[0, 0, Math.PI / 2]}>
             <group

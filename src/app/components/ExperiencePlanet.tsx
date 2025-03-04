@@ -39,7 +39,7 @@ export default function ExperiencePlanet({
       <Canvas camera={{ position: [0, 0, 5] }}>
         <directionalLight
           intensity={directionalIntensity}
-          position={lightPosition}
+          position={[-2, -1, 0]}
         />
         <ambientLight intensity={ambientIntensity} />
         <OrbitControls />
