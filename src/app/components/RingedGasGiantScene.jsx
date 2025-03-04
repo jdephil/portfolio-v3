@@ -21,9 +21,10 @@ export function RingedGasGiantScene(props) {
   useFrame(() => {
     group.current.rotation.y += props.rotateSpeed
   })
+
   return (
     <group
-      position={[5, 3, 0]}
+      position={[6, 4.5, 0]}
       ref={group}
       {...props}
       dispose={null}

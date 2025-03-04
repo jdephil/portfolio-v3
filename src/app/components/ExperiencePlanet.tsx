@@ -20,7 +20,13 @@ export default function ExperiencePlanet({
       case "/purple_planet/scene.gltf":
         return <PurplePlanetScene rotateSpeed={rotateSpeed} scale={scale} />
       case "/odious/scene.gltf":
-        return <OdiousScene rotateSpeed={rotateSpeed} scale={scale} />
+        return (
+          <OdiousScene
+            position={[0, 0, 0]}
+            rotateSpeed={rotateSpeed}
+            scale={scale}
+          />
+        )
       case "/kepler-452b/scene.gltf":
         return <KeplerScene rotateSpeed={rotateSpeed} scale={scale} />
       case "/green_planet/scene.gltf":

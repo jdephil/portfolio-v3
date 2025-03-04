@@ -18,7 +18,7 @@ export function MarsScene(props) {
 
   return (
     <group
-      position={[0, 1, 0]}
+      position={[1, 2, 0]}
       ref={group}
       {...props}
       dispose={null}

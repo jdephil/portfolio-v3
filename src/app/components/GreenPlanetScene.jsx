@@ -24,7 +24,7 @@ export function GreenPlanetScene(props) {
   })
   return (
     <group
-      position={[9, 4.5, 0]}
+      position={[10, 6.5, 0]}
       ref={group}
       {...props}
       dispose={null}

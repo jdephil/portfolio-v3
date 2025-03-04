@@ -19,23 +19,22 @@ export default function Home() {
   const videoRef = useRef<HTMLVideoElement>(null)
   useEffect(() => {
     if (!videoRef.current) return
-    videoRef.current.playbackRate = 0.6
+    videoRef.current.playbackRate = 1
   })
   const setPlayBack = () => {
     if (!videoRef.current) return
-    videoRef.current.playbackRate = 0.2
+    videoRef.current.playbackRate = 1
   }
   return (
     <div className="flex flex-col h-screen">
-      {/* <video
-        ref={videoRef}
+      <video
         className="absolute w-full h-full object-cover z-0"
         autoPlay
         muted
         loop
       >
-        <source src="/stars-plain.mp4" type="video/mp4" />
-      </video> */}
+        <source src="/stars.mp4" type="video/mp4" />
+      </video>
       <div className="m-5 text-white z-10">
         <p>Jennifer De Phillips</p>
         <p>Full Stack Software Engineer</p>
@@ -63,9 +62,14 @@ export default function Home() {
           <ambientLight intensity={0.7} />
           <OrbitControls />
           <PurplePlanetScene rotateSpeed={0.005} scale={2} />
-          <OdiousScene rotateSpeed={0.03} scale={0.75} />
-          <MarsScene scale={0.025} rotateSpeed={0.005} />
-          <RingedGasGiantScene scale={0.22} rotateSpeed={0.01} />
+          <OdiousScene
+            rotateSpeed={0.03}
+            scale={1}
+            position={[-6, -1, 0]}
+            landing={true}
+          />
+          <MarsScene scale={0.028} rotateSpeed={0.005} />
+          <RingedGasGiantScene scale={0.25} rotateSpeed={0.01} />
           <GreenPlanetScene scale={0.004} rotateSpeed={0.001} />
           <KeplerScene rotateSpeed={0.005} scale={0.004} />
         </Canvas>

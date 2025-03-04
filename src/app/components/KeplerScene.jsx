@@ -21,7 +21,7 @@ export function KeplerScene(props) {
   })
   return (
     <group
-      position={[12, 5.5, 0]}
+      position={[13, 8, 0]}
       ref={group}
       {...props}
       dispose={null}

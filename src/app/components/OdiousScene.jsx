@@ -8,25 +8,35 @@ Source: https://sketchfab.com/3d-models/odious-d2580bf2f3a3406a8e7567214c9a0725
 Title: Odious
 */
 
-import React from "react"
-import { useGLTF } from "@react-three/drei"
+import { useRef, useState, useEffect } from "react"
+import { useGLTF, Html } from "@react-three/drei"
 import { useFrame } from "@react-three/fiber"
+import { useRouter } from "next/navigation"
 
 export function OdiousScene(props) {
-  const group = React.useRef()
+  const group = useRef()
+  const router = useRouter()
   const { nodes, materials } = useGLTF("/odious.glb")
+  const [hovered, setHover] = useState(false)
   useFrame(() => {
     group.current.rotation.y += props.rotateSpeed
   })
+  useEffect(() => {
+    document.body.style.cursor = hovered ? "pointer" : "auto"
+    return () => (document.body.style.cursor = "auto")
+  }, [hovered])
+
   return (
     <group
-      position={[-6, -1, 0]}
       ref={group}
       {...props}
       dispose={null}
-      scale={props.scale}
+      scale={hovered && props.landing ? 1.5 : props.scale}
     >
       <mesh
+        onClick={() => router.push("/squirrel")}
+        onPointerOver={(e) => (e.stopPropagation(), setHover(true))}
+        onPointerOut={(e) => setHover(false)}
         geometry={nodes.Sphere.geometry}
         material={materials.SurfaceMaterial}
         rotation={[-Math.PI / 2, 0, 0]}
