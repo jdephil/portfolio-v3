@@ -28,9 +28,9 @@ export function PurplePlanetScene(props) {
     return () => (document.body.style.cursor = "auto")
   }, [hovered])
 
-  // useFrame(() => {
-  //   group.current.rotation.y += props.rotateSpeed
-  // })
+  useFrame(() => {
+    group.current.rotation.y += props.rotateSpeed
+  })
   return (
     <group ref={group} {...props} dispose={null}>
       <group name="Sketchfab_Scene">

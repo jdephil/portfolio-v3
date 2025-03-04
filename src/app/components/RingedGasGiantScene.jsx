@@ -37,7 +37,6 @@ export function RingedGasGiantScene(props) {
       {...props}
       dispose={null}
       scale={hovered && props.landing ? 0.4 : props.scale}
-      rotation={[0, 0, -5]}
     >
       <mesh
         onClick={() => router.push("/lexx")}
@@ -51,7 +50,7 @@ export function RingedGasGiantScene(props) {
       <mesh
         geometry={nodes.Plane_m_ring_0.geometry}
         material={materials.m_ring}
-        rotation={[-1.944, -1.197, -0.076]}
+        rotation={[-1.944, -0.197, -0.076]}
         scale={10.394}
       />
     </group>

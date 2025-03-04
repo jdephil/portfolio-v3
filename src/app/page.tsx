@@ -1,5 +1,5 @@
 "use client"
-import { useState } from "react"
+import { useState, Suspense } from "react"
 import { Canvas } from "@react-three/fiber"
 import { GreenPlanetScene } from "./components/GreenPlanetScene"
 import { PurplePlanetScene } from "./components/PurplePlanetScene"
@@ -9,6 +9,7 @@ import { OdiousScene } from "./components/OdiousScene"
 import { MarsScene } from "./components/MarsScene"
 import { KeplerScene } from "./components/KeplerScene"
 import { PLANET_LABELS } from "./utils/consts"
+import Loading from "./components/Loading"
 
 export default function Home() {
   const [planetLabel, setPlanetLabel] = useState(PLANET_LABELS[0])
@@ -41,57 +42,59 @@ export default function Home() {
         </div>
       </div>
       <div className=" flex flex-col justify-center flex-1">
-        <Canvas
-          camera={{ zoom: 38, near: 0.1, far: 3000, position: [0, 2, 300] }}
-          orthographic={true}
-          fallback={<div>Sorry no WebGL supported!</div>}
-        >
-          <directionalLight intensity={5} position={[-2, -1, 0]} />
-          <ambientLight intensity={0.7} />
-          <OrbitControls />
-          <PurplePlanetScene
-            rotateSpeed={0.005}
-            scale={2}
-            landing={true}
-            setPlanetLabel={setPlanetLabel}
-            position={[-16, -6, 0]}
-          />
-          <OdiousScene
-            rotateSpeed={0.03}
-            scale={1}
-            position={[-6, -1, 0]}
-            landing={true}
-            setPlanetLabel={setPlanetLabel}
-          />
-          <MarsScene
-            scale={0.028}
-            rotateSpeed={0.005}
-            position={[1, 2, 0]}
-            landing={true}
-            setPlanetLabel={setPlanetLabel}
-          />
-          <RingedGasGiantScene
-            scale={0.25}
-            rotateSpeed={0.01}
-            landing={true}
-            setPlanetLabel={setPlanetLabel}
-            position={[6, 4.5, 0]}
-          />
-          <GreenPlanetScene
-            scale={0.004}
-            rotateSpeed={0.001}
-            position={[10, 6.5, 0]}
-            landing={true}
-            setPlanetLabel={setPlanetLabel}
-          />
-          <KeplerScene
-            rotateSpeed={0.005}
-            scale={0.004}
-            position={[13, 8, 0]}
-            landing={true}
-            setPlanetLabel={setPlanetLabel}
-          />
-        </Canvas>
+        <Suspense fallback={<Loading />}>
+          <Canvas
+            camera={{ zoom: 38, near: 0.1, far: 3000, position: [0, 2, 300] }}
+            orthographic={true}
+            fallback={<div>Sorry no WebGL supported!</div>}
+          >
+            <directionalLight intensity={5} position={[-2, -1, 0]} />
+            <ambientLight intensity={0.7} />
+            <OrbitControls />
+            <PurplePlanetScene
+              rotateSpeed={0.005}
+              scale={2}
+              landing={true}
+              setPlanetLabel={setPlanetLabel}
+              position={[-16, -6, 0]}
+            />
+            <OdiousScene
+              rotateSpeed={0.03}
+              scale={1}
+              position={[-6, -1, 0]}
+              landing={true}
+              setPlanetLabel={setPlanetLabel}
+            />
+            <MarsScene
+              scale={0.028}
+              rotateSpeed={0.005}
+              position={[1, 2, 0]}
+              landing={true}
+              setPlanetLabel={setPlanetLabel}
+            />
+            <RingedGasGiantScene
+              scale={0.25}
+              rotateSpeed={0.01}
+              landing={true}
+              setPlanetLabel={setPlanetLabel}
+              position={[6, 4.5, 0]}
+            />
+            <GreenPlanetScene
+              scale={0.004}
+              rotateSpeed={0.001}
+              position={[10, 6.5, 0]}
+              landing={true}
+              setPlanetLabel={setPlanetLabel}
+            />
+            <KeplerScene
+              rotateSpeed={0.005}
+              scale={0.004}
+              position={[13, 8, 0]}
+              landing={true}
+              setPlanetLabel={setPlanetLabel}
+            />
+          </Canvas>
+        </Suspense>
       </div>
       <div className="bg-black border-4 border-white w-56 h-64 z-20 absolute right-20 top-[60%] m-auto p-5 border-double flex flex-col gap-2">
         <p>Click planets to explore</p>
