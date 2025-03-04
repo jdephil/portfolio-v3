@@ -15,6 +15,7 @@ export default function ExperiencePlanet({
   ambientIntensity,
   rotateSpeed,
 }: PlanetProps) {
+  const { width } = useWindowDimensions()
   function switchModel() {
     switch (src) {
       case "/purple_planet/scene.gltf":
@@ -32,7 +33,7 @@ export default function ExperiencePlanet({
     }
   }
   function orbitalZoom() {
-    if (window.innerWidth <= 640) {
+    if (width <= 640) {
       return false
     } else {
       return true
