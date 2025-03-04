@@ -4,7 +4,8 @@ import { useRouter } from "next/navigation"
 import { PlanetProps } from "../utils/types"
 import { PurplePlanetScene } from "./PurplePlanetScene"
 import Loading from "./Loading"
-
+import { MarsScene } from "./MarsScene"
+import { OrbitControls } from "@react-three/drei"
 export default function PurplePlanet({
   scale,
   title,
@@ -13,18 +14,20 @@ export default function PurplePlanet({
   const router = useRouter()
 
   return (
-    <div className="w-24 m-auto flex">
+    <div className="w-56 m-auto flex">
       <div
         onClick={() => router.push("/basta")}
-        className="h-24 planetBorder w-full"
+        className="h-56 planetBorder w-full"
       >
-        <Suspense fallback={<Loading />}>
-          <Canvas camera={{ position: [0, 0, 5] }}>
-            <directionalLight intensity={5} position={lightPosition} />
-            <ambientLight intensity={0.3} />
-            <PurplePlanetScene rotateSpeed={0.01} scale={scale} />
-          </Canvas>
-        </Suspense>
+        {/* <Suspense fallback={<Loading />}> */}
+        <Canvas>
+          <directionalLight intensity={5} position={lightPosition} />
+          <ambientLight intensity={0.3} />
+          <OrbitControls />
+          <PurplePlanetScene rotateSpeed={0.01} scale={1.5} />
+          <MarsScene scale={0.06} rotateSpeed={0.005} />
+        </Canvas>
+        {/* </Suspense> */}
       </div>
       <div className="planetLabel">
         <p className="opacity-100">{title}</p>

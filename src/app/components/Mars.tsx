@@ -14,13 +14,13 @@ export default function Mars({ scale, title, lightPosition }: PlanetProps) {
         onClick={() => router.push("/data4living")}
         className="h-24 w-24 m-auto planetBorder"
       >
-        <Suspense fallback={<Loading />}>
-          <Canvas camera={{ position: [0, 0, 5] }}>
-            <directionalLight intensity={5} position={lightPosition} />
-            <ambientLight />
-            <MarsScene scale={scale} rotateSpeed={0.005} />
-          </Canvas>
-        </Suspense>
+        {/* <Suspense fallback={<Loading />}> */}
+        <Canvas camera={{ position: [0, 0, 5] }}>
+          <directionalLight intensity={5} position={lightPosition} />
+          <ambientLight />
+          <MarsScene scale={0.06} rotateSpeed={0.005} />
+        </Canvas>
+        {/* </Suspense> */}
       </div>
       <div className="planetLabel">
         <p className="opacity-100">{title}</p>

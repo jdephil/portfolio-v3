@@ -11,16 +11,25 @@ Title: Ringed Gas Giant Planet
 import React from "react"
 import { useGLTF } from "@react-three/drei"
 import { useFrame } from "@react-three/fiber"
+import { useRouter } from "next/navigation"
 
 export function RingedGasGiantScene(props) {
   const group = React.useRef()
+  const router = useRouter()
 
   const { nodes, materials } = useGLTF("/ringed-gas-giant.glb")
   useFrame(() => {
     group.current.rotation.y += props.rotateSpeed
   })
   return (
-    <group ref={group} {...props} dispose={null} scale={props.scale}>
+    <group
+      position={[5, 3, 0]}
+      ref={group}
+      {...props}
+      dispose={null}
+      scale={props.scale}
+      rotation={[0, 0, -5]}
+    >
       <mesh
         geometry={nodes.Cube_m_planet_0.geometry}
         material={materials.m_planet}
@@ -30,7 +39,7 @@ export function RingedGasGiantScene(props) {
       <mesh
         geometry={nodes.Plane_m_ring_0.geometry}
         material={materials.m_ring}
-        rotation={[-1.944, -0.197, -0.076]}
+        rotation={[-1.944, -1.197, -0.076]}
         scale={10.394}
       />
     </group>

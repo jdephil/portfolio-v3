@@ -17,7 +17,13 @@ export function MarsScene(props) {
   })
 
   return (
-    <group ref={group} {...props} dispose={null} scale={props.scale}>
+    <group
+      position={[0, 1, 0]}
+      ref={group}
+      {...props}
+      dispose={null}
+      scale={props.scale}
+    >
       <mesh
         geometry={nodes.Earth_Planet_0.geometry}
         material={materials.Planet}

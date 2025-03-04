@@ -12,16 +12,16 @@ export default function RingedGasGiant({ scale }: PlanetProps) {
     <div className=" m-auto flex ">
       <div
         onClick={() => router.push("/lexx")}
-        className="h-28 w-28 planetBorder"
+        className="h-52 w-52 planetBorder"
       >
-        <Suspense fallback={<Loading />}>
-          <Canvas camera={{ position: [0, 0, 5] }}>
-            <ambientLight />
-            <directionalLight intensity={5} position={[0, 1, 0]} />
+        {/* <Suspense fallback={<Loading />}> */}
+        <Canvas camera={{ position: [0, 0, 5] }}>
+          <ambientLight />
+          <directionalLight intensity={5} position={[0, 1, 0]} />
 
-            <RingedGasGiantScene scale={scale} rotateSpeed={0.01} />
-          </Canvas>
-        </Suspense>
+          <RingedGasGiantScene scale={0.2} rotateSpeed={0.01} />
+        </Canvas>
+        {/* </Suspense> */}
       </div>
       <div className="planetLabel">
         <p className="opacity-100">Lexx</p>

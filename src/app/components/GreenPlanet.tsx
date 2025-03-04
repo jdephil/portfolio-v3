@@ -18,17 +18,17 @@ export default function GreenPlanet({
         onClick={() => router.push("/frog-story")}
         className="h-24 w-24 planetBorder"
       >
-        <Suspense fallback={<Loading />}>
-          <Canvas
-            camera={{ position: [0, 0, 5] }}
-            fallback={<div>Sorry no WebGL supported!</div>}
-          >
-            <directionalLight intensity={5} position={lightPosition} />
-            <ambientLight intensity={0.7} />
+        {/* <Suspense fallback={<Loading />}> */}
+        <Canvas
+          camera={{ position: [0, 0, 5] }}
+          fallback={<div>Sorry no WebGL supported!</div>}
+        >
+          <directionalLight intensity={5} position={lightPosition} />
+          <ambientLight intensity={0.7} />
 
-            <GreenPlanetScene scale={scale} rotateSpeed={0.001} />
-          </Canvas>
-        </Suspense>
+          <GreenPlanetScene scale={0.005} rotateSpeed={0.001} />
+        </Canvas>
+        {/* </Suspense> */}
       </div>
       <div className="planetLabel">
         <p className="opacity-100">{title}</p>

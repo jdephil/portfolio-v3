@@ -20,7 +20,13 @@ export function KeplerScene(props) {
     group.current.rotation.y += props.rotateSpeed
   })
   return (
-    <group ref={group} {...props} dispose={null} scale={props.scale}>
+    <group
+      position={[12, 5.5, 0]}
+      ref={group}
+      {...props}
+      dispose={null}
+      scale={props.scale}
+    >
       <mesh
         geometry={nodes["����������001_CLOUDS_0"].geometry}
         material={materials.CLOUDS}

@@ -23,7 +23,13 @@ export function GreenPlanetScene(props) {
     group.current.rotation.y += props.rotateSpeed
   })
   return (
-    <group ref={group} {...props} dispose={null} scale={props.scale}>
+    <group
+      position={[9, 4.5, 0]}
+      ref={group}
+      {...props}
+      dispose={null}
+      scale={props.scale}
+    >
       <group name="Sketchfab_Scene">
         <primitive object={nodes._rootJoint} />
         <mesh
