@@ -6,4 +6,5 @@ export interface PlanetProps {
   ambientIntensity?: number
   rotateSpeed?: number
   title?: string
+  position?: [x: number, y: number, z: number]
 }

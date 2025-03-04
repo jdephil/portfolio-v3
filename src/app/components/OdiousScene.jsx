@@ -23,7 +23,9 @@ export function OdiousScene(props) {
   })
   useEffect(() => {
     document.body.style.cursor = hovered ? "pointer" : "auto"
-    props.setPlanetLabel(hovered ? PLANET_LABELS[2] : PLANET_LABELS[0])
+    props.setPlanetLabel
+      ? props.setPlanetLabel(hovered ? PLANET_LABELS[2] : PLANET_LABELS[0])
+      : null
     return () => (document.body.style.cursor = "auto")
   }, [hovered])
 

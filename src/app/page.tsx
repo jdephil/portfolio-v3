@@ -49,7 +49,13 @@ export default function Home() {
           <directionalLight intensity={5} position={[-2, -1, 0]} />
           <ambientLight intensity={0.7} />
           <OrbitControls />
-          <PurplePlanetScene rotateSpeed={0.005} scale={2} />
+          <PurplePlanetScene
+            rotateSpeed={0.005}
+            scale={2}
+            landing={true}
+            setPlanetLabel={setPlanetLabel}
+            position={[-16, -6, 0]}
+          />
           <OdiousScene
             rotateSpeed={0.03}
             scale={1}
@@ -57,17 +63,22 @@ export default function Home() {
             landing={true}
             setPlanetLabel={setPlanetLabel}
           />
-          <MarsScene scale={0.028} rotateSpeed={0.005} />
+          <MarsScene
+            scale={0.028}
+            rotateSpeed={0.005}
+            landing={true}
+            setPlanetLabel={setPlanetLabel}
+          />
           <RingedGasGiantScene scale={0.25} rotateSpeed={0.01} />
           <GreenPlanetScene scale={0.004} rotateSpeed={0.001} />
           <KeplerScene rotateSpeed={0.005} scale={0.004} />
         </Canvas>
       </div>
-      <div className="bg-black border-4 border-white w-56 h-64 z-20 absolute right-20 top-[60%] m-auto p-5 border-double">
-        <p>Hover and click on planets to explore</p>
-        <p>Project:</p>
+      <div className="bg-black border-4 border-white w-56 h-64 z-20 absolute right-20 top-[60%] m-auto p-5 border-double flex flex-col gap-2">
+        <p>Click planets to explore</p>
+        <p className="font-bold mt-5">Project:</p>
         <p>{planetLabel.name}</p>
-        <p>Year:</p>
+        <p className="font-bold">Year:</p>
         <p>{planetLabel.year}</p>
       </div>
     </div>
