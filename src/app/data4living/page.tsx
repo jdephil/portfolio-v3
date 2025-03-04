@@ -9,13 +9,12 @@ export default function Data4Living() {
         <ExperiencePlanet
           src="/mars_gltf/scene.gltf"
           scale={0.05}
-          lightPosition={[0, -1, 0]}
-          directionalIntensity={3}
-          ambientIntensity={0.6}
+          directionalIntensity={4}
+          ambientIntensity={0.7}
           rotateSpeed={0.001}
         />
       </div>
-      <div className="w-[500px] self-center ">
+      <div className="experience ">
         <Experience
           imgSource="/data4living.png"
           description="Data4Living simplifies your document management and helps prepare your

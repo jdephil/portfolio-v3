@@ -20,4 +20,13 @@ body {
   .planetBorder {
     @apply border-4 border-cyan-500 border-double rounded-full cursor-pointer border-opacity-60 hover:border-[#F3DAAF] hover:border-opacity-60;
   }
+  .experience {
+    @apply pb-5 w-[300px] md:pb-0 md:w-[600px] self-center;
+  }
+  .experienceContainer {
+    @apply flex flex-col items-center md:flex-row md:justify-around md:items-end h-svh;
+  }
+  .experiencePlanet {
+    @apply my-5 p-5 mb-10 h-[300px] w-[300px] md:p-0 md:my-0 md:mb-0 md:h-[600px] md:w-[650px];
+  }
 }

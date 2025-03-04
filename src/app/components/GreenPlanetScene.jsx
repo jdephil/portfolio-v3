@@ -8,22 +8,43 @@ Source: https://sketchfab.com/3d-models/green-planet-965dcf47e69e4c139741598162b
 Title: Green Planet
 */
 
-import React from "react"
+import { useRef, useState, useEffect, useMemo } from "react"
 import { useGraph, useFrame } from "@react-three/fiber"
 import { useGLTF, useAnimations } from "@react-three/drei"
 import { SkeletonUtils } from "three-stdlib"
+import { useRouter } from "next/navigation"
+import { PLANET_LABELS } from "../utils/consts"
 
 export function GreenPlanetScene(props) {
-  const group = React.useRef()
+  const group = useRef()
+  const router = useRouter()
+  const [hovered, setHover] = useState(false)
+
   const { scene, animations } = useGLTF("/green-planet.glb")
-  const clone = React.useMemo(() => SkeletonUtils.clone(scene), [scene])
+  const clone = useMemo(() => SkeletonUtils.clone(scene), [scene])
   const { nodes, materials } = useGraph(clone)
   const { actions } = useAnimations(animations, group)
   useFrame(() => {
     group.current.rotation.y += props.rotateSpeed
   })
+  useEffect(() => {
+    document.body.style.cursor = hovered ? "pointer" : "auto"
+    props.setPlanetLabel
+      ? props.setPlanetLabel(hovered ? PLANET_LABELS[5] : PLANET_LABELS[0])
+      : null
+    return () => (document.body.style.cursor = "auto")
+  }, [hovered])
+
   return (
-    <group ref={group} {...props} dispose={null} scale={props.scale}>
+    <group
+      onClick={() => router.push("/frog-story")}
+      onPointerOver={(e) => (e.stopPropagation(), setHover(true))}
+      onPointerOut={(e) => setHover(false)}
+      ref={group}
+      {...props}
+      dispose={null}
+      scale={hovered && props.landing ? 0.007 : props.scale}
+    >
       <group name="Sketchfab_Scene">
         <primitive object={nodes._rootJoint} />
         <mesh

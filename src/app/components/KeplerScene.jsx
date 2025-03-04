@@ -8,19 +8,39 @@ Source: https://sketchfab.com/3d-models/kepler-452b-816d14fb09974160aed7cb264bd7
 Title: Kepler-452b
 */
 
-import React from "react"
+import { useRef, useState, useEffect } from "react"
 import { useGLTF } from "@react-three/drei"
 import { useFrame } from "@react-three/fiber"
+import { useRouter } from "next/navigation"
+import { PLANET_LABELS } from "../utils/consts"
 
 export function KeplerScene(props) {
-  const group = React.useRef()
+  const group = useRef()
+  const router = useRouter()
+  const [hovered, setHover] = useState(false)
 
   const { nodes, materials } = useGLTF("/kepler-452b.glb")
   useFrame(() => {
     group.current.rotation.y += props.rotateSpeed
   })
+  useEffect(() => {
+    document.body.style.cursor = hovered ? "pointer" : "auto"
+    props.setPlanetLabel
+      ? props.setPlanetLabel(hovered ? PLANET_LABELS[6] : PLANET_LABELS[0])
+      : null
+    return () => (document.body.style.cursor = "auto")
+  }, [hovered])
+
   return (
-    <group ref={group} {...props} dispose={null} scale={props.scale}>
+    <group
+      onClick={() => router.push("/wedding")}
+      onPointerOver={(e) => (e.stopPropagation(), setHover(true))}
+      onPointerOut={(e) => setHover(false)}
+      ref={group}
+      {...props}
+      dispose={null}
+      scale={hovered && props.landing ? 0.007 : props.scale}
+    >
       <mesh
         geometry={nodes["����������001_CLOUDS_0"].geometry}
         material={materials.CLOUDS}

@@ -4,18 +4,17 @@ import Experience from "../components/Experience"
 
 export default function FrogStory() {
   return (
-    <div className="flex justify-around items-end h-svh">
-      <div className="h-[500px] w-[500px] ">
+    <div className="experienceContainer">
+      <div className="experiencePlanet ">
         <ExperiencePlanet
-          directionalIntensity={4}
-          ambientIntensity={0.19}
+          directionalIntensity={5}
+          ambientIntensity={0.25}
           src="/green_planet/scene.gltf"
           scale={0.015}
-          lightPosition={[0, 1, 0]}
           rotateSpeed={0.001}
         />
       </div>
-      <div className="w-[500px] self-center ">
+      <div className="experience">
         <Experience
           imgSource="/frogStory.png"
           description="A choose-your-own-adventure game about a lonely, little frog (and the first app I ever built)."

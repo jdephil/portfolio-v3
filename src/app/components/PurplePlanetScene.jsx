@@ -8,20 +8,40 @@ Source: https://sketchfab.com/3d-models/purple-planet-264eb22207184fc99a5e3b1279
 Title: Purple Planet
 */
 
-import React from "react"
+import { useRef, useState, useEffect } from "react"
 import { useGLTF, useAnimations } from "@react-three/drei"
 import { useFrame, useLoader } from "@react-three/fiber"
+import { useRouter } from "next/navigation"
+import { PLANET_LABELS } from "../utils/consts"
+
 export function PurplePlanetScene(props) {
-  const group = React.useRef()
+  const group = useRef()
+  const router = useRouter()
+  const [hovered, setHover] = useState(false)
   const { nodes, materials, animations } = useGLTF("/purple-planet.glb")
   const { actions } = useAnimations(animations, group)
+  useEffect(() => {
+    document.body.style.cursor = hovered ? "pointer" : "auto"
+    props.setPlanetLabel
+      ? props.setPlanetLabel(hovered ? PLANET_LABELS[1] : PLANET_LABELS[0])
+      : null
+    return () => (document.body.style.cursor = "auto")
+  }, [hovered])
+
   useFrame(() => {
     group.current.rotation.y += props.rotateSpeed
   })
   return (
     <group ref={group} {...props} dispose={null}>
       <group name="Sketchfab_Scene">
-        <group name="Root" rotation={[-Math.PI / 2, 0, 0]} scale={props.scale}>
+        <group
+          onClick={() => router.push("/basta")}
+          onPointerOver={(e) => (e.stopPropagation(), setHover(true))}
+          onPointerOut={(e) => setHover(false)}
+          name="Root"
+          rotation={[-Math.PI / 2, 0.2, 0]}
+          scale={hovered && props.landing ? 2.3 : props.scale}
+        >
           <group name="Planet" rotation={[0, 0, Math.PI / 2]}>
             <group
               name="Clouds_0"
@@ -38,7 +58,7 @@ export function PurplePlanetScene(props) {
               name="Planet_0"
               geometry={nodes.Planet_0.geometry}
               material={materials.PurplePlanet}
-              rotateY={Math.PI / 2}
+              // rotateY={Math.PI / 2}
             />
           </group>
           <group name="Clouds_1" scale={1.019}>

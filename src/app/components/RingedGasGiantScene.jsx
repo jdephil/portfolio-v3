@@ -8,20 +8,40 @@ Source: https://sketchfab.com/3d-models/ringed-gas-giant-planet-b4e21775e84e4cf3
 Title: Ringed Gas Giant Planet
 */
 
-import React from "react"
+import { useRef, useState, useEffect } from "react"
 import { useGLTF } from "@react-three/drei"
 import { useFrame } from "@react-three/fiber"
+import { useRouter } from "next/navigation"
+import { PLANET_LABELS } from "../utils/consts"
 
 export function RingedGasGiantScene(props) {
-  const group = React.useRef()
+  const group = useRef()
+  const router = useRouter()
+  const [hovered, setHover] = useState(false)
 
   const { nodes, materials } = useGLTF("/ringed-gas-giant.glb")
   useFrame(() => {
     group.current.rotation.y += props.rotateSpeed
   })
+  useEffect(() => {
+    document.body.style.cursor = hovered ? "pointer" : "auto"
+    props.setPlanetLabel
+      ? props.setPlanetLabel(hovered ? PLANET_LABELS[4] : PLANET_LABELS[0])
+      : null
+    return () => (document.body.style.cursor = "auto")
+  }, [hovered])
+
   return (
-    <group ref={group} {...props} dispose={null} scale={props.scale}>
+    <group
+      ref={group}
+      {...props}
+      dispose={null}
+      scale={hovered && props.landing ? 0.4 : props.scale}
+    >
       <mesh
+        onClick={() => router.push("/lexx")}
+        onPointerOver={(e) => (e.stopPropagation(), setHover(true))}
+        onPointerOut={(e) => setHover(false)}
         geometry={nodes.Cube_m_planet_0.geometry}
         material={materials.m_planet}
         rotation={[-1.944, -0.197, -0.076]}

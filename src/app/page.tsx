@@ -1,16 +1,44 @@
 "use client"
-
-import Kepler from "./components/Kepler"
-import PurplePlanet from "./components/PurplePlanet"
-import RingedGasGiant from "./components/RingedGasGiant"
-import Odious from "./components/Odious"
-import GreenPlanet from "./components/GreenPlanet"
-import Mars from "./components/Mars"
+import { useState, Suspense } from "react"
+import { Canvas } from "@react-three/fiber"
+import { GreenPlanetScene } from "./components/GreenPlanetScene"
+import { PurplePlanetScene } from "./components/PurplePlanetScene"
+import { OrbitControls } from "@react-three/drei"
+import { RingedGasGiantScene } from "./components/RingedGasGiantScene"
+import { OdiousScene } from "./components/OdiousScene"
+import { MarsScene } from "./components/MarsScene"
+import { KeplerScene } from "./components/KeplerScene"
+import { PLANET_LABELS } from "./utils/consts"
+import Loading from "./components/Loading"
+import useWindowDimensions from "./utils/windowDimensions"
 
 export default function Home() {
+  const [planetLabel, setPlanetLabel] = useState(PLANET_LABELS[0])
+  const { width } = useWindowDimensions()
+  function cameraPosition() {
+    if (width <= 640) {
+      return 10
+    } else if (width > 640 && width <= 768) {
+      return 15
+    } else if (width > 768 && width <= 1024) {
+      return 18
+    } else if (width > 1024 && width <= 1280) {
+      return 25
+    } else {
+      return 30
+    }
+  }
   return (
     <div className="flex flex-col h-screen">
-      <div className="m-5 text-white">
+      <video
+        className="absolute w-full h-full object-cover z-0"
+        autoPlay
+        muted
+        loop
+      >
+        <source src="/stars.mp4" type="video/mp4" />
+      </video>
+      <div className="m-5 text-white z-10">
         <p>Jennifer De Phillips</p>
         <p>Full Stack Software Engineer</p>
         <div className="flex">
@@ -27,42 +55,76 @@ export default function Home() {
           </a>
         </div>
       </div>
-      <div className="bg-[url('/galaxy.jpeg')] bg-cover flex flex-col justify-center flex-1">
-        <div className="grid grid-cols-4 grid-rows-4 min-h-full mt-20">
-          <div className="row-start-2  col-start-1 col-span-2 flex">
-            {" "}
-            <PurplePlanet
-              title="Basta"
-              scale={1.1}
-              lightPosition={[1, -0.5, 0]}
+      <div className=" flex flex-col justify-center flex-1">
+        <Suspense fallback={<Loading />}>
+          <Canvas
+            camera={{
+              zoom: cameraPosition(),
+              near: 0.1,
+              far: 3000,
+              position: [0, 0, 300],
+              rotation: [10, 50, 0],
+            }}
+            orthographic={true}
+            fallback={<div>Sorry no WebGL supported!</div>}
+          >
+            <directionalLight intensity={5} position={[-2, -1, 0]} />
+            <ambientLight intensity={0.7} />
+            <OrbitControls />
+            <PurplePlanetScene
+              rotateSpeed={0.005}
+              scale={2}
+              landing={true}
+              setPlanetLabel={setPlanetLabel}
+              position={[-16, -6, 0]}
             />
-          </div>
-          <div className="col-start-1 col-span-1 row-start-3">
-            {" "}
-            <GreenPlanet
-              title="Frog"
-              scale={0.008}
-              lightPosition={[1, 0.5, 0]}
+            <OdiousScene
+              rotateSpeed={0.03}
+              scale={1}
+              position={[-6, -1, 0]}
+              landing={true}
+              setPlanetLabel={setPlanetLabel}
             />
-          </div>
-          <div className="col-span-2 col-start-2 row-start-1 flex self-end">
-            <Mars title="Data4Living" scale={0.02} lightPosition={[0, -1, 0]} />
-          </div>
-          <div className="col-start-3 row-start-2 col-span-2 flex justify-center">
-            {" "}
-            <Odious scale={0.3} />
-          </div>
-          <div className="col-start-3 col-span-2 row-start-3">
-            <Kepler
-              title="Wedding"
-              scale={0.008}
-              lightPosition={[-1, 0.5, 0]}
+            <MarsScene
+              scale={0.028}
+              rotateSpeed={0.005}
+              position={[1, 2, 0]}
+              landing={true}
+              setPlanetLabel={setPlanetLabel}
             />
-          </div>
-
-          <div className="col-span-2 col-start-2 row-span-2 row-start-4 flex">
-            <RingedGasGiant scale={0.18} />{" "}
-          </div>
+            <RingedGasGiantScene
+              scale={0.25}
+              rotateSpeed={0.01}
+              landing={true}
+              setPlanetLabel={setPlanetLabel}
+              position={[6, 4.5, 0]}
+            />
+            <GreenPlanetScene
+              scale={0.004}
+              rotateSpeed={0.001}
+              position={[10, 6.5, 0]}
+              landing={true}
+              setPlanetLabel={setPlanetLabel}
+            />
+            <KeplerScene
+              rotateSpeed={0.005}
+              scale={0.004}
+              position={[13, 8, 0]}
+              landing={true}
+              setPlanetLabel={setPlanetLabel}
+            />
+          </Canvas>
+        </Suspense>
+      </div>
+      <div className="bg-black border-4 border-white md:w-56 md:h-64 z-20 absolute bottom-5 right-5 md:right-20 md:top-[60%] m-auto p-5 border-double flex flex-col gap-2">
+        <p>Click planets to explore</p>
+        <div className="hidden md:block">
+          <p className="font-bold my-2">Project:</p>
+          <p>{planetLabel.name}</p>
+        </div>
+        <div className="hidden md:block">
+          <p className="font-bold my-2">Year:</p>
+          <p>{planetLabel.year}</p>
         </div>
       </div>
     </div>
