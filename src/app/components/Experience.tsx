@@ -7,7 +7,7 @@ export default function Experience(props: {
 }) {
   return (
     <div className="flex-col items-center justify-center">
-      <div className="mb-20">
+      <div className="mb-5 md:mb-20">
         <Image
           src={props.imgSource}
           alt="data4Living"

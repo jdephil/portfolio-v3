@@ -4,8 +4,8 @@ import Experience from "../components/Experience"
 
 export default function FrogStory() {
   return (
-    <div className="flex justify-around items-end h-svh">
-      <div className="h-[500px] w-[500px] ">
+    <div className="experienceContainer">
+      <div className="experiencePlanet ">
         <ExperiencePlanet
           directionalIntensity={5}
           ambientIntensity={0.25}

@@ -7,9 +7,9 @@ import { KeplerScene } from "./KeplerScene"
 import { GreenPlanetScene } from "./GreenPlanetScene"
 import { RingedGasGiantScene } from "./RingedGasGiantScene"
 import { MarsScene } from "./MarsScene"
+import useWindowDimensions from "../utils/windowDimensions"
 export default function ExperiencePlanet({
   scale,
-  lightPosition,
   src,
   directionalIntensity,
   ambientIntensity,
@@ -31,6 +31,13 @@ export default function ExperiencePlanet({
         return <MarsScene rotateSpeed={rotateSpeed} scale={scale} />
     }
   }
+  function orbitalZoom() {
+    if (window.innerWidth <= 640) {
+      return false
+    } else {
+      return true
+    }
+  }
   return (
     <div className=" h-full w-full cursor-pointer">
       <p className="text-center">
@@ -42,7 +49,7 @@ export default function ExperiencePlanet({
           position={[-2, -1, 0]}
         />
         <ambientLight intensity={ambientIntensity} />
-        <OrbitControls />
+        <OrbitControls enableZoom={orbitalZoom()} />
         {switchModel()}
       </Canvas>
     </div>

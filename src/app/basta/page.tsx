@@ -3,8 +3,8 @@ import ExperiencePlanet from "../components/ExperiencePlanet"
 import Experience from "../components/Experience"
 export default function PurplePlanetPage() {
   return (
-    <div className="flex justify-around items-end h-svh">
-      <div className="h-[600px] w-[600px] ">
+    <div className="experienceContainer">
+      <div className="experiencePlanet">
         <ExperiencePlanet
           src="/purple_planet/scene.gltf"
           scale={1.5}

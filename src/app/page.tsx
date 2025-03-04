@@ -10,10 +10,24 @@ import { MarsScene } from "./components/MarsScene"
 import { KeplerScene } from "./components/KeplerScene"
 import { PLANET_LABELS } from "./utils/consts"
 import Loading from "./components/Loading"
+import useWindowDimensions from "./utils/windowDimensions"
 
 export default function Home() {
   const [planetLabel, setPlanetLabel] = useState(PLANET_LABELS[0])
-
+  const { width } = useWindowDimensions()
+  function cameraPosition() {
+    if (width <= 640) {
+      return 10
+    } else if (width > 640 && width <= 768) {
+      return 15
+    } else if (width > 768 && width <= 1024) {
+      return 18
+    } else if (width > 1024 && width <= 1280) {
+      return 25
+    } else {
+      return 30
+    }
+  }
   return (
     <div className="flex flex-col h-screen">
       <video
@@ -44,7 +58,13 @@ export default function Home() {
       <div className=" flex flex-col justify-center flex-1">
         {/* <Suspense fallback={<Loading />}> */}
         <Canvas
-          camera={{ zoom: 35, near: 0.1, far: 3000, position: [0, 2, 300] }}
+          camera={{
+            zoom: cameraPosition(),
+            near: 0.1,
+            far: 3000,
+            position: [0, 0, 300],
+            rotation: [10, 50, 0],
+          }}
           orthographic={true}
           fallback={<div>Sorry no WebGL supported!</div>}
         >

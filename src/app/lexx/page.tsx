@@ -4,8 +4,8 @@ import Experience from "../components/Experience"
 
 export default function Lexx() {
   return (
-    <div className="flex justify-around items-end h-svh">
-      <div className="h-[600px] w-[650px] ">
+    <div className="experienceContainer">
+      <div className="experiencePlanet">
         <ExperiencePlanet
           src="/ringed_gas_giant/scene.gltf"
           scale={0.35}

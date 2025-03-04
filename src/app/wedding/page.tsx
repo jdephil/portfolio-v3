@@ -4,8 +4,8 @@ import Experience from "../components/Experience"
 
 export default function Wedding() {
   return (
-    <div className="flex justify-around items-end h-svh">
-      <div className="h-[600px] w-[650px] ">
+    <div className="experienceContainer">
+      <div className="experiencePlanet">
         <ExperiencePlanet
           directionalIntensity={5}
           ambientIntensity={0.4}
