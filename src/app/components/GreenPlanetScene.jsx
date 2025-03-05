@@ -27,6 +27,9 @@ export function GreenPlanetScene(props) {
   useFrame(() => {
     group.current.rotation.y += props.rotateSpeed
   })
+  useFrame((state) => {
+    console.log(state.camera.positon)
+  })
   useEffect(() => {
     document.body.style.cursor = hovered ? "pointer" : "auto"
     props.setPlanetLabel
