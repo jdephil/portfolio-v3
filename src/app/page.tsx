@@ -26,6 +26,9 @@ export default function Home() {
   const [rayleigh, setRayleigh] = useState(0.03)
   const [showPlanetLabel, setShowPlanetLabel] = useState(false)
   const [bgColor, setBgColor] = useState("bg-[#5C6576]")
+  const [cloudsVisible, setCloudsVisible] = useState(true)
+  const [fov, setFov] = useState(120)
+  // const [cameraPosition, setCameraPosition] = useState(10)
   function cameraPosition() {
     if (width <= 640) {
       return 10
@@ -40,6 +43,10 @@ export default function Home() {
     }
   }
 
+  function isTouchscreen() {
+    if (window.matchMedia("(any-hover: none)").matches) {
+    }
+  }
   function BackgroundUpdater() {
     useFrame(({ camera }) => {
       if (camera.position.z >= 250) {
@@ -47,7 +54,7 @@ export default function Home() {
         setShowPlanetLabel(false)
         setBgColor("bg-[#5C6576]")
       }
-      if (camera.position.z >= 240) {
+      if (camera.position.z >= 240 && width <= 768) {
         setRayleigh(0.01) // light blue when zoomed out
         setShowPlanetLabel(false)
         setBgColor("bg-[#5C6576]")
@@ -56,6 +63,13 @@ export default function Home() {
         setRayleigh(0) // Black when zoomed in
         setShowPlanetLabel(true)
         setBgColor("bg-[#000000]")
+      }
+      if (!window.matchMedia("(pointer: coarse)").matches) {
+        setRayleigh(0)
+        setShowPlanetLabel(true)
+        setBgColor("bg-[#000000]")
+        setCloudsVisible(false)
+        setFov(50)
       }
     })
     return null
@@ -91,7 +105,7 @@ export default function Home() {
         <Suspense fallback={<Loading />}>
           <Canvas
             camera={{
-              fov: 120,
+              fov: fov,
               zoom: cameraPosition(),
               near: 0.1,
               far: 3000,
@@ -122,7 +136,11 @@ export default function Home() {
           <CloudScene position={[5, 5, 200]} scale={1} rotation={[0, 18, 5]} />
           <CloudScene position={[0, 15, 200]} scale={1} rotation={[0, 1, 5]} />
  */}
-            <Clouds material={THREE.MeshBasicMaterial} position={[0, 0, 250]}>
+            <Clouds
+              visible={cloudsVisible}
+              material={THREE.MeshBasicMaterial}
+              position={[0, 0, 250]}
+            >
               <Cloud
                 seed={3}
                 segments={40}
@@ -179,7 +197,11 @@ export default function Home() {
                 speed={0.05}
               />
             </Clouds>
-            <Clouds material={THREE.MeshBasicMaterial} position={[0, 0, 800]}>
+            <Clouds
+              visible={cloudsVisible}
+              material={THREE.MeshBasicMaterial}
+              position={[0, 0, 800]}
+            >
               <Cloud
                 seed={3}
                 segments={40}
