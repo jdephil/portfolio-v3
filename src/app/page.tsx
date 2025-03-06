@@ -113,7 +113,11 @@ export default function Home() {
             />
             <directionalLight intensity={5} position={[-2, -1, 0]} />
             <ambientLight intensity={0.7} />
-            <OrbitControls enableRotate={false} maxDistance={1000} />
+            <OrbitControls
+              enablePan={false}
+              enableRotate={false}
+              maxDistance={1000}
+            />
             {/* <CloudScene position={[-5, 3, 200]} scale={1} />
           <CloudScene position={[5, 5, 200]} scale={1} rotation={[0, 18, 5]} />
           <CloudScene position={[0, 15, 200]} scale={1} rotation={[0, 1, 5]} />
