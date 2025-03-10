@@ -43,10 +43,6 @@ export default function Home() {
     }
   }
 
-  function isTouchscreen() {
-    if (window.matchMedia("(any-hover: none)").matches) {
-    }
-  }
   function BackgroundUpdater() {
     useFrame(({ camera }) => {
       if (camera.position.z >= 250) {
