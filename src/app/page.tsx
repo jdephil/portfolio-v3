@@ -19,7 +19,6 @@ import { KeplerScene } from "./components/KeplerScene"
 import { PLANET_LABELS } from "./utils/consts"
 import Loading from "./components/Loading"
 import useWindowDimensions from "./utils/windowDimensions"
-import { is } from "@react-three/fiber/dist/declarations/src/core/utils"
 
 export default function Home() {
   const [planetLabel, setPlanetLabel] = useState(PLANET_LABELS[0])
@@ -31,7 +30,6 @@ export default function Home() {
   const [fov, setFov] = useState(120)
   // const [cameraPosition, setCameraPosition] = useState(10)
   function cameraPosition() {
-    console.log("width", width)
     if (width <= 640) {
       return 10
     } else if (width > 640 && width <= 768) {
