@@ -58,13 +58,13 @@ export default function Home() {
         setShowPlanetLabel(true)
         setBgColor("bg-[#000000]")
       }
-      // if (navigator.maxTouchPoints > 1) {
-      //   setRayleigh(0)
-      //   setShowPlanetLabel(true)
-      //   setBgColor("bg-[#000000]")
-      //   setCloudsVisible(false)
-      //   setFov(50)
-      // }
+      if (navigator.maxTouchPoints === 1) {
+        setRayleigh(0)
+        setShowPlanetLabel(true)
+        setBgColor("bg-[#000000]")
+        setCloudsVisible(false)
+        setFov(50)
+      }
     })
     return null
   }
