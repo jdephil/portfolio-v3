@@ -87,13 +87,11 @@ export default function Home() {
           </a>
         </div>
       </div>
-      {navigator.maxTouchPoints > 1 ? (
-        <div className="m-auto block md:hidden">
-          <p>zoom to enter</p>
-        </div>
-      ) : (
-        <></>
-      )}
+
+      <div className="m-auto block md:hidden">
+        <p>zoom to enter</p>
+      </div>
+
       <div className=" flex flex-col justify-center flex-1">
         <Suspense fallback={<Loading />}>
           <Canvas
