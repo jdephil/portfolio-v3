@@ -25,8 +25,6 @@ export default function Home() {
   const [rayleigh, setRayleigh] = useState(0.03)
   const [showPlanetLabel, setShowPlanetLabel] = useState(false)
   const [bgColor, setBgColor] = useState("bg-[#5C6576]")
-  // const [cloudsVisible, setCloudsVisible] = useState(true)
-  // const [fov, setFov] = useState(120)
   function cameraPosition() {
     if (width <= 640) {
       return 8
@@ -58,13 +56,6 @@ export default function Home() {
         setShowPlanetLabel(true)
         setBgColor("bg-[#000000]")
       }
-      // if (navigator.maxTouchPoints === 1) {
-      //   setRayleigh(0)
-      //   setShowPlanetLabel(true)
-      //   setBgColor("bg-[#000000]")
-      //   setCloudsVisible(false)
-      //   setFov(50)
-      // }
     })
     return null
   }
@@ -104,7 +95,6 @@ export default function Home() {
               rotation: [10, 5, 0],
             }}
             style={{ touchAction: "none" }}
-            // orthographic={true}
             fallback={<div>Sorry no WebGL supported!</div>}
           >
             <Environment preset="night" />
