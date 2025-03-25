@@ -29,7 +29,7 @@ export default function Home() {
   // const [fov, setFov] = useState(120)
   function cameraPosition() {
     if (width <= 640) {
-      return 5
+      return 8
     } else if (width > 640 && width <= 768) {
       return 15
     } else if (width > 768 && width <= 1024) {
