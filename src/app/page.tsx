@@ -19,6 +19,7 @@ import { KeplerScene } from "./components/KeplerScene"
 import { PLANET_LABELS } from "./utils/consts"
 import Loading from "./components/Loading"
 import useWindowDimensions from "./utils/windowDimensions"
+import { is } from "@react-three/fiber/dist/declarations/src/core/utils"
 
 export default function Home() {
   const [planetLabel, setPlanetLabel] = useState(PLANET_LABELS[0])
@@ -46,11 +47,6 @@ export default function Home() {
 
   function BackgroundUpdater() {
     useFrame(({ camera }) => {
-      console.log("z", camera.position.z)
-      console.log(
-        "pointer cursor",
-        !window.matchMedia("(pointer: coarse)").matches,
-      )
       if (camera.position.z >= 250) {
         setRayleigh(0.03) // blue when zoomed out
         setShowPlanetLabel(false)
@@ -66,7 +62,7 @@ export default function Home() {
         setShowPlanetLabel(true)
         setBgColor("bg-[#000000]")
       }
-      if (!window.matchMedia("(pointer: coarse)").matches) {
+      if (navigator.maxTouchPoints > 1) {
         setRayleigh(0)
         setShowPlanetLabel(true)
         setBgColor("bg-[#000000]")
