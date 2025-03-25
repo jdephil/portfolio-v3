@@ -30,6 +30,7 @@ export default function Home() {
   const [fov, setFov] = useState(120)
   // const [cameraPosition, setCameraPosition] = useState(10)
   function cameraPosition() {
+    console.log(width)
     if (width <= 640) {
       return 10
     } else if (width > 640 && width <= 768) {
@@ -45,6 +46,7 @@ export default function Home() {
 
   function BackgroundUpdater() {
     useFrame(({ camera }) => {
+      console.log(camera.position.z)
       if (camera.position.z >= 250) {
         setRayleigh(0.03) // blue when zoomed out
         setShowPlanetLabel(false)
