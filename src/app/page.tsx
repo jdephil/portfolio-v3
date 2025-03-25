@@ -29,7 +29,7 @@ export default function Home() {
   // const [fov, setFov] = useState(120)
   function cameraPosition() {
     if (width <= 640) {
-      return 10
+      return 15
     } else if (width > 640 && width <= 768) {
       return 15
     } else if (width > 768 && width <= 1024) {
@@ -123,11 +123,7 @@ export default function Home() {
               enableRotate={false}
               maxDistance={1000}
             />
-            <Clouds
-              // visible={cloudsVisible}
-              material={THREE.MeshBasicMaterial}
-              position={[0, 0, 250]}
-            >
+            <Clouds material={THREE.MeshBasicMaterial} position={[0, 0, 250]}>
               <Cloud
                 seed={3}
                 segments={40}
@@ -184,11 +180,7 @@ export default function Home() {
                 speed={0.05}
               />
             </Clouds>
-            <Clouds
-              // visible={cloudsVisible}
-              material={THREE.MeshBasicMaterial}
-              position={[0, 0, 800]}
-            >
+            <Clouds material={THREE.MeshBasicMaterial} position={[0, 0, 800]}>
               <Cloud
                 seed={3}
                 segments={40}
