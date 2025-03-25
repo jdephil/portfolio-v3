@@ -41,9 +41,8 @@ export default function ExperiencePlanet({
   }
   return (
     <div className=" h-full w-full cursor-pointer">
-      <p className="text-center">
-        Click & drag to observe planet, scroll to zoom
-      </p>
+      <p className="text-center">Click & drag to observe planet</p>
+      <p className="hidden md:block text-center">Scroll to zoom</p>
       <Canvas camera={{ position: [0, 0, 5] }}>
         <directionalLight
           intensity={directionalIntensity}
