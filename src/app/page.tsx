@@ -25,8 +25,8 @@ export default function Home() {
   const [rayleigh, setRayleigh] = useState(0.03)
   const [showPlanetLabel, setShowPlanetLabel] = useState(false)
   const [bgColor, setBgColor] = useState("bg-[#5C6576]")
-  const [cloudsVisible, setCloudsVisible] = useState(true)
-  const [fov, setFov] = useState(120)
+  // const [cloudsVisible, setCloudsVisible] = useState(true)
+  // const [fov, setFov] = useState(120)
   function cameraPosition() {
     if (width <= 640) {
       return 10
@@ -58,13 +58,13 @@ export default function Home() {
         setShowPlanetLabel(true)
         setBgColor("bg-[#000000]")
       }
-      if (navigator.maxTouchPoints === 1) {
-        setRayleigh(0)
-        setShowPlanetLabel(true)
-        setBgColor("bg-[#000000]")
-        setCloudsVisible(false)
-        setFov(50)
-      }
+      // if (navigator.maxTouchPoints === 1) {
+      //   setRayleigh(0)
+      //   setShowPlanetLabel(true)
+      //   setBgColor("bg-[#000000]")
+      //   setCloudsVisible(false)
+      //   setFov(50)
+      // }
     })
     return null
   }
@@ -96,7 +96,7 @@ export default function Home() {
         <Suspense fallback={<Loading />}>
           <Canvas
             camera={{
-              fov: fov,
+              fov: 120,
               zoom: cameraPosition(),
               near: 0.1,
               far: 3000,
@@ -124,7 +124,7 @@ export default function Home() {
               maxDistance={1000}
             />
             <Clouds
-              visible={cloudsVisible}
+              // visible={cloudsVisible}
               material={THREE.MeshBasicMaterial}
               position={[0, 0, 250]}
             >
@@ -185,7 +185,7 @@ export default function Home() {
               />
             </Clouds>
             <Clouds
-              visible={cloudsVisible}
+              // visible={cloudsVisible}
               material={THREE.MeshBasicMaterial}
               position={[0, 0, 800]}
             >
