@@ -15,7 +15,6 @@ import { RingedGasGiantScene } from "./components/RingedGasGiantScene"
 import { OdiousScene } from "./components/OdiousScene"
 import { MarsScene } from "./components/MarsScene"
 import { KeplerScene } from "./components/KeplerScene"
-// import { CloudScene } from "./components/CloudScene"
 import { PLANET_LABELS } from "./utils/consts"
 import Loading from "./components/Loading"
 import useWindowDimensions from "./utils/windowDimensions"
@@ -28,7 +27,6 @@ export default function Home() {
   const [bgColor, setBgColor] = useState("bg-[#5C6576]")
   const [cloudsVisible, setCloudsVisible] = useState(true)
   const [fov, setFov] = useState(120)
-  // const [cameraPosition, setCameraPosition] = useState(10)
   function cameraPosition() {
     if (width <= 640) {
       return 10
@@ -72,14 +70,6 @@ export default function Home() {
   }
   return (
     <div className={`${bgColor} flex flex-col h-screen`}>
-      {/* <video
-        className="absolute w-full h-full object-cover z-0"
-        autoPlay
-        muted
-        loop
-      >
-        <source src="/stars.mp4" type="video/mp4" />
-      </video> */}
       <div className="m-5 text-white z-10">
         <p>Jennifer De Phillips</p>
         <p>Full Stack Software Engineer</p>
@@ -97,6 +87,13 @@ export default function Home() {
           </a>
         </div>
       </div>
+      {navigator.maxTouchPoints > 1 ? (
+        <div className="m-auto block md:hidden">
+          <p>zoom to enter</p>
+        </div>
+      ) : (
+        <></>
+      )}
       <div className=" flex flex-col justify-center flex-1">
         <Suspense fallback={<Loading />}>
           <Canvas
@@ -128,10 +125,6 @@ export default function Home() {
               enableRotate={false}
               maxDistance={1000}
             />
-            {/* <CloudScene position={[-5, 3, 200]} scale={1} />
-          <CloudScene position={[5, 5, 200]} scale={1} rotation={[0, 18, 5]} />
-          <CloudScene position={[0, 15, 200]} scale={1} rotation={[0, 1, 5]} />
- */}
             <Clouds
               visible={cloudsVisible}
               material={THREE.MeshBasicMaterial}
